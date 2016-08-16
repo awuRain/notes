@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="list" style="background-color: ${themecolor}" data-taplog="${tapLog}">
+    <ul >
+        <li class="item-list">
+        {@each list as item}
+            <section class="city${item.citycode}" data-citycode="${item.citycode}">
+                <img class="item-title" src="${item.title}"/>
+                <ul>
+                    {@each item.list as i}
+                    <li class="ticket-list" data-tid="${i.tid}">
+                        <div class="item-banner" style="background-image: url(${i.banner});"></div>
+                        <div class="item-ctn">
+                            <div class="item-ctn-left">
+                                <div class="item-ctn-title">
+                                    ${i.title}
+                                </div>
+                                <div class="item-ctn-subtitle">
+                                    ${i.subtitle}
+                                </div>
+                            </div>
+                            <div class="item-ctn-right">
+                                {@if i.price}<div class="item-price">特价¥${i.price}起</div>{@/if}
+                                <div class="item-btn">立即购买</div>
+                            </div>
+                        </div>
+                    </li>
+                    {@/each}
+                </ul>
+            </section>
+        {@/each}
+        </li>
+    </ul>
+</section>
+<script type="text/javascript">
+    BNJSReady(function(){
+        window.eventId = '${eventId}';
+        require('./index.js');
+    });
+</script>

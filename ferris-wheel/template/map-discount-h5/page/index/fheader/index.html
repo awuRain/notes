@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header" style="background: ${themecolor};">
+    <section class="banner">
+        <img src="${banner}" width="100%"/>
+        <div class="shadow"></div>
+    </section>
+    <div class="select-city">
+        <div class="c1">选择你向往的远方</div>
+        <div class="c4 J_Selectcity">
+            <div class="c2">加载中...</div>
+            <div class="c3">▾</div>
+        </div>
+    </div>
+</section>
+<!--选择城市遮罩层-->
+<div id="J_province-flayer" style="display: none;">
+    <span class="J_province-close"></span>
+    <span class="province-title">选择你向往的远方</span>
+    <ul class="province-ul">
+
+    </ul>
+</div>
+<script type="text/javascript">
+    window.host = 'http://lvyou.baidu.com/';
+    window.eventId = '${eventId}';
+    var padding_bottom = ((('${banner_h}'/'${banner_w}')*100).toFixed(0))+'%';
+    ready(function(){
+        require('./index.js');
+        window.Bridge.setTitle('${title}');
+        /*开启分享和刷新功能*/
+        if(/Nuomi/i.test(navigator.userAgent)) {
+            BNJS.ui.title.addActionButton({
+                tag: '123',
+                text: '分享',
+                icon: 'share',
+                callback: function(){
+
+                    BNJS.ui.share({
+                        title : '${sharetitle}',
+                        imgUrl : '${banner}',
+                        content: '${shareinfo}',
+                        url : location.href,
+                        onSuccess : function(){
+                            window.Bridge.Toast.show('分享成功');
+                        },
+                        onFail : function(){
+                            window.Bridge.Toast.show('分享失败');
+                        }
+                    });
+                }
+            });
+        }
+        else if(/baidumap/i.test(navigator.userAgent)) {
+            var simplifiedData = {
+                title: '${sharetitle}',
+                text: "${shareinfo}",
+                url: location.href,
+                weiboPic: 'http://webmap1.map.bdimg.com/maps/services/thumbnails?width=222&height=208&quality=95&align=middle,middle&src=${banner}',
+                weixinPic: 'http://webmap1.map.bdimg.com/maps/services/thumbnails?width=222&height=208&quality=95&align=middle,middle&src=${banner}'
+            };
+            nativeAppAdapter.initShare(simplifiedData);
+        }
+    });
+</script>

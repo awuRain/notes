@@ -1,0 +1,8 @@
+{
+	"eventId":"nuomispring",
+	"title":"周游记",
+	"themecolor":"#ededed",
+	"buttoncolor":"#fb3c55",
+    "section":["header","coupon", "guessplay", "takeplay", "footer"],
+    "section2":["recomheader", "select", "recomfooter"]
+}

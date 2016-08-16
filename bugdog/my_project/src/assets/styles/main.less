@@ -1,0 +1,42 @@
+html {
+	
+}
+@top-bar-height: 50px;
+@left-bar-width: 170px;
+@light-color01: #B64CFF;
+@light-color02: #9600FF;
+@light-color03: #7800CC;
+@light-color04: #500C7F;
+@light-color04: #4B007F;
+
+ul li {
+	list-style: none;
+}
+
+.top-bar {
+	width: 100%;
+	height: @top-bar-height;
+	background: @light-color03;
+}
+
+.left-bar {
+	position: absolute;
+	color: #fff;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: @left-bar-width;
+	background-color: @light-color04;
+	margin-top: @top-bar-height;
+	ul {
+		margin-top: 30px;
+	}
+	a {
+		color: #fff;
+	}
+}
+
+.cont-container {
+	margin-left: @left-bar-width;
+	padding: 30px;
+}

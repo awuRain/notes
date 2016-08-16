@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">特价资源区块</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label7">点击统计：</label>
+                <input class="form-control" ng-model="data.index.discount.tapLog">
+            </div>
+            <div class="form-group">
+                <label class="label7">数据接口：</label>
+                <input class="form-control" ng-model="data.index.discount.discountDataUrl">
+            </div>
+            <div class="form-group">
+                <label class="label7">无特价资源文案：</label>
+                <input class="form-control" ng-model="data.index.discount.noPro">
+            </div>
+            <div class="radio">
+                <label class="label6"><b>类型：</b></label>
+                <label>
+                    <input type="radio" name="type" value="poi" checked="checked" ng-model="data.index.discount.discountType">景点
+                </label>
+                <label>
+                    <input type="radio" name="type" value="detail" ng-model="data.index.discount.discountType">门票
+                </label>
+            </div>
+        </form>
+    </div>
+</div>

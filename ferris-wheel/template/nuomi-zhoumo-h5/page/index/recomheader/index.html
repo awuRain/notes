@@ -1,0 +1,70 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header">
+    <div class="image">
+        <img src="${image}" alt="">
+        <div class="imtextwrap">
+            <div class="imtext">
+                <div class="imtitle J-tag">${bartitle}</div>
+                <div class="imsub">${barsubtitle}</div>
+            </div>
+        </div>
+    </div>
+    <div class="brief">${brief}</div>
+</section>
+<script type="text/javascript">
+window.host = 'http://lvyou.baidu.com/';
+var Tracker = require('Tracker');
+var channel;
+window.eventId = '${eventId}';
+window.Bridge = require('Bridge');
+
+ready(function() {
+    Bridge.setTitle('${title}');
+
+    /*统计pv uv*/
+    Tracker.init({
+        module: 'index',
+        page: window.eventId
+    });
+    Tracker.pvLog();
+
+    Bridge.Data.getData(function(res) {
+        delete res.uid;
+        delete res.comppage;
+
+        if (location.host == 'map.baidu.com' || res['na_from'] == 'map_scope') {
+            channel = "map_scope";
+        } else if (location.host == 'lvyou.baidu.com' || res['na_from'] == 'nuomi') {
+            channel = "nuomi";
+        } else {
+            channel = "nuomi";
+        }
+
+        Tracker.showLog({
+            'client_type': Bridge.isBaiduMap() ? '7' : '3',
+            'ext_os': Bridge.isAndroid() ? 'android' : 'ios',
+            'accur_trd': channel == 'map_scope' ? 'map' : 'nuomi',
+            'accur_act': 'pv',
+            'accur_thirdpar': res.fr,
+            'accur_src': res.activename || 'zm_promotion',
+            'innerfr_pg': res.innerfr,
+            'innersubfr_pg': res.innersubfr,
+            'ext_type': 0
+        });
+
+        var _arr = [];
+        for (var key in res) {
+            _arr.push(key + '=' + res[key])
+        }
+        
+        /*开启分享功能*/
+        Bridge.initShare({
+            title: (res.sname || '') + '${sharetitle}',
+            content: '${shareinfo}',
+            imgUrl: "${sharepic}",
+            url: location.href + '?' + _arr.join('&')
+        });
+
+    });
+});
+</script>

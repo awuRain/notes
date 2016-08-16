@@ -1,0 +1,14 @@
+<link href="./index.less" rel="stylesheet">
+<section class="tab">
+    {@each buttons as button, index}
+        <div class="tab-button tab-button-${index}" style="background-color: ${buttoncolor};color: ${color};" data-type="${index}" data-taplog="${button.tap}" data-productlog="${button.producttap}">${button.text}</div>
+    {@/each}
+</section>
+<style>
+  .select-tab {
+    background-color: ${buttonselectcolor} !important;
+  }
+</style>
+<script>
+    require.async('./index.js', function(e){});
+</script>

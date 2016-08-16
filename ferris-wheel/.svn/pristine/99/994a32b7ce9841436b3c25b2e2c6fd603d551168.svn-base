@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "juicer@",
+      "/Users/yangyu/workspace/bugfixq1/ferris-wheel/ferris-wheel"
+    ]
+  ],
+  "_from": "juicer@latest",
+  "_id": "juicer@0.6.14",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/juicer",
+  "_nodeVersion": "0.12.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/juicer-0.6.14.tgz_1459526306311_0.5270096308086067"
+  },
+  "_npmUser": {
+    "email": "badkaikai@gmail.com",
+    "name": "paulguo"
+  },
+  "_npmVersion": "2.13.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "juicer",
+    "raw": "juicer@",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/juicer/-/juicer-0.6.14.tgz",
+  "_shasum": "9ec024b509839dfcf671820ec55bdc2eb6ad4930",
+  "_shrinkwrap": null,
+  "_spec": "juicer@",
+  "_where": "/Users/yangyu/workspace/bugfixq1/ferris-wheel/ferris-wheel",
+  "author": {
+    "name": "juicer.js authors {badkaikai@gmail.com | http://benben.cc}"
+  },
+  "bin": {
+    "juicer": "./bin/juicer"
+  },
+  "bugs": {
+    "url": "https://github.com/PaulGuo/Juicer/issues"
+  },
+  "dependencies": {
+    "optimist": "~0.3",
+    "uglify-js": "~1.2"
+  },
+  "description": "a high-performance lightweight javascript template engine",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "9ec024b509839dfcf671820ec55bdc2eb6ad4930",
+    "tarball": "https://registry.npmjs.org/juicer/-/juicer-0.6.14.tgz"
+  },
+  "engines": {
+    "node": ">=0.4.7"
+  },
+  "gitHead": "9709d18f33655daec8029f277e326640d4dae4d4",
+  "homepage": "http://juicer.name",
+  "keywords": [
+    "juicer",
+    "template",
+    "templates",
+    "juicerjs",
+    "engine",
+    "javascript"
+  ],
+  "main": "./src/juicer",
+  "maintainers": [
+    {
+      "email": "badkaikai@gmail.com",
+      "name": "paulguo"
+    },
+    {
+      "email": "bachi@taobao.com",
+      "name": "bachi"
+    }
+  ],
+  "name": "juicer",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/PaulGuo/Juicer.git"
+  },
+  "scripts": {},
+  "version": "0.6.14"
+}

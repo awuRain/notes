@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    <div class="panel-heading">优惠券配置</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label6">数据接口：</label>
+                <input class="form-control" ng-model="data.index.coupon.url_get">
+            </div>
+            <div class="form-group">
+                <label class="label6">状态接口：</label>
+                <input class="form-control" ng-model="data.index.coupon.url_state">
+            </div>
+            <div class="form-group">
+                <label class="label6">活动名称：</label>
+                <input class="form-control" ng-model="data.index.coupon.activity_name">
+            </div>
+            <div></div>
+            <section ng-repeat="(index,item) in data.index.coupon.couponList" class="border no-adjustable">
+                <div class="form-group">
+                    <label class="label6">优惠券{{index+1}} 面额：</label>
+                    <input class="form-control" ng-model="item.price">
+                </div>
+                <div class="form-group">
+                    <label class="label6">优惠券{{index+1}} 描述：</label>
+                    <input class="form-control" ng-model="item.title">
+                </div>
+                <div class="form-group">
+                    <label class="label6">优惠券{{index+1}} pbid：</label>
+                    <input class="form-control" ng-model="item.pbid">
+                </div>
+                
+            </section>
+        </form>
+    </div>
+</div>

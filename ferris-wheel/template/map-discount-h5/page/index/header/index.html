@@ -1,0 +1,72 @@
+<!-- padding-bottom:${logoHeight/logoWidth*100}% -->
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header" style="background: ${themecolor};">
+   <section class="banner" style="padding-bottom:${banner_h/banner_w*100}%">
+       <img src="${banner}" width="100%"/>
+       <div class="shadow" style="padding-bottom:${banner_h/banner_w*100}%"></div>
+   </section>
+    <div class="select-city">
+        <div class="c1">选择所在的城市</div>
+        <div class="c4 J_Selectcity">
+            <div class="c2">加载中</div>
+            <div class="c3">▾</div>
+        </div>
+    </div>
+</section>
+<!--选择城市遮罩层-->
+<div id="J_province-flayer" style="display: none;">
+    <span class="J_province-close"></span>
+    <span class="province-title">选择你想出行的省份</span>
+    <ul class="province-ul">
+        <li class="province-li" data-poid="100000000" data-sname="北京" data-cityid="131">北京</li>
+        <li class="province-li" data-poid="200000000" data-sname="上海" data-cityid="289">上海</li>
+        <li class="province-li" data-poid="300000000" data-sname="广东" data-cityid="257">广东</li>
+        <li class="province-li" data-poid="2800000000" data-sname="云南" data-cityid="104">云南</li>
+        <li class="province-li" data-poid="2600000000" data-sname="海南" data-cityid="125">海南</li>
+        <li class="province-li" data-poid="1500000000" data-sname="安徽" data-cityid="127">安徽</li>
+        <li class="province-li" data-poid="900000000" data-sname="重庆" data-cityid="132">重庆</li>
+        <li class="province-li" data-poid="1900000000" data-sname="福建" data-cityid="300">福建</li>
+        <li class="province-li" data-poid="3000000000" data-sname="甘肃" data-cityid="36">甘肃</li>
+        <li class="province-li" data-poid="2500000000" data-sname="广西" data-cityid="261">广西</li>
+        <li class="province-li" data-poid="2700000000" data-sname="贵州" data-cityid="146">贵州</li>
+        <li class="province-li" data-poid="1800000000" data-sname="河北" data-cityid="150">河北</li>
+        <li class="province-li" data-poid="1100000000" data-sname="黑龙江" data-cityid="48">黑龙江</li>
+        <li class="province-li" data-poid="2000000000" data-sname="河南" data-cityid="268">河南</li>
+        <li class="province-li" data-poid="400000000" data-sname="湖北" data-cityid="218">湖北</li>
+        <li class="province-li" data-poid="1200000000" data-sname="湖南" data-cityid="158">湖南</li>
+        <li class="province-li" data-poid="700000000" data-sname="江苏" data-cityid="315">江苏</li>
+        <li class="province-li" data-poid="2400000000" data-sname="江西" data-cityid="163">江西</li>
+        <li class="province-li" data-poid="2300000000" data-sname="吉林" data-cityid="53">吉林</li>
+        <li class="province-li" data-poid="1300000000" data-sname="辽宁" data-cityid="58">辽宁</li>
+        <li class="province-li" data-poid="2200000000" data-sname="内蒙古" data-cityid="321">内蒙古</li>
+        <li class="province-li" data-poid="3200000000" data-sname="宁夏" data-cityid="360">宁夏</li>
+        <li class="province-li" data-poid="3100000000" data-sname="青海" data-cityid="66">青海</li>
+        <li class="province-li" data-poid="1400000000" data-sname="山东" data-cityid="288">山东</li>
+        <li class="province-li" data-poid="1000000000" data-sname="陕西" data-cityid="233">陕西</li>
+        <li class="province-li" data-poid="2100000000" data-sname="山西" data-cityid="176">山西</li>
+        <li class="province-li" data-poid="800000000" data-sname="四川" data-cityid="75">四川</li>
+        <li class="province-li" data-poid="500000000" data-sname="天津" data-cityid="332">天津</li>
+        <li class="province-li" data-poid="3300000000" data-sname="新疆" data-cityid="92">新疆</li>
+        <li class="province-li" data-poid="2900000000" data-sname="西藏" data-cityid="100">西藏</li>
+        <li class="province-li" data-poid="600000000" data-sname="浙江" data-cityid="179">浙江</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    window.host = 'http://lvyou.baidu.com/';
+    var eventId = '${eventId}';
+    var Bridge = require('Bridge');
+    
+    ready(function(){
+        require('./index.js');
+        window.Bridge.setTitle('${title}');
+        /*开启分享和刷新功能*/
+        if(/(Nuomi|baidumap)/i.test(navigator.userAgent)) {
+            Bridge.initShare({
+                title: '${sharetitle}',
+                content: '${shareinfo}',
+                imgUrl: "${banner}",
+                url: location.href
+            });
+        }
+    });
+</script>

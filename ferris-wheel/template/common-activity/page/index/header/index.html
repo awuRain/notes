@@ -1,0 +1,98 @@
+<section class="header-wrap" style="background-color: ${themecolor}">
+    <div class="header-img" style="padding-bottom:${logoHeight/logoWidth*100}%">
+        <img src="${logo}" width="100%" />
+        <div class="shadow"></div>
+        {@if hasRule == '1'}
+        <div class="header-rules J_Rules" style="${rulesCss}">活动规则</div>
+        {@/if}
+    </div>
+    {@if text}
+    <div class="header-text" style="color: #333;">
+        $${text}
+    </div>
+    {@/if}
+
+    {@if hasRule == '1'}
+    <!--活动规则遮罩层-->
+    <section class="flayer" style="">
+        <div class="flayer-container">
+            <span class="flayer-btn-close J-flayer-close"></span>
+            <div class="rule-title">活动详情</div>
+            <div class="flayer-bd">
+                {@each rules.split("<br/>") as rule,index}
+                    <p>${parseInt(index)+1}. ${rule}</p>
+                {@/each}
+            </div>
+        </div>
+    </section>
+    {@/if}
+
+    {@if hasProvince == '1'}
+    <div class="province-select J-province-select" style="background: ${provinceBg};color: ${provinceTextColor};">
+        <p class="cur-province">
+            <strong id="J_cur-pro">加载中</strong>
+            <span class="arrow" style="color: ${provinceTextColor};">></span>
+        </p>
+    </div>
+
+
+    <!--出行省份的遮罩层-->
+    <div id="J_province-flayer" style="display: none;">
+        <span class="J_province-close"></span>
+        <span class="province-title">选择你想出行的省份</span>
+        <ul class="province-ul">
+            <li class="province-li" data-poid="100000000" data-sname="北京" data-sid="795ac511463263cf7ae3def3">北京</li>
+            <li class="province-li " data-poid="200000000" data-sname="上海" data-sid="289d2b074d001b3184b27ef7">上海</li>
+            <li class="province-li " data-poid="300000000" data-sname="广东" data-sid="b0240abb6cf9c05f301acdf3">广东</li>
+            <li class="province-li " data-poid="2800000000" data-sname="云南" data-sid="17070a5c91ca872746461bf4">云南</li>
+            <li class="province-li " data-poid="2600000000" data-sname="海南" data-sid="7425aa3f6703cc8575ed39f0">海南</li>
+            <li class="province-li " data-poid="1500000000" data-sname="安徽" data-sid="fb0af2c9c005c401f11576f3">安徽</li>
+            <li class="province-li " data-poid="900000000" data-sname="重庆" data-sid="1fdbf740851f3e07d8d23ff7">重庆</li>
+            <li class="province-li " data-poid="1900000000" data-sname="福建" data-sid="55163f0fd41f9757809972f0">福建</li>
+            <li class="province-li " data-poid="3000000000" data-sname="甘肃" data-sid="64649c1ed1b18b0036d9f4f3">甘肃</li>
+            <li class="province-li " data-poid="2500000000" data-sname="广西" data-sid="de5f301a4dadc1b44664c8f3">广西</li>
+            <li class="province-li " data-poid="2700000000" data-sname="贵州" data-sid="c2fa4653ba3ece0ae6bc95f3">贵州</li>
+            <li class="province-li " data-poid="1800000000" data-sname="河北" data-sid="4c3263cf7ae3b9d414ffdcf3">河北</li>
+            <li class="province-li " data-poid="1100000000" data-sname="黑龙江" data-sid="6275641493d83c0c3f1515f7">黑龙江</li>
+            <li class="province-li " data-poid="2000000000" data-sname="河南" data-sid="75285f52dec9c3f9db7dfef3">河南</li>
+            <li class="province-li " data-poid="400000000" data-sname="湖北" data-sid="9607cc8575ed2e69961327f7">湖北</li>
+            <li class="province-li " data-poid="1200000000" data-sname="湖南" data-sid="2f1a4dadc1b446649c1ec9f3">湖南</li>
+            <li class="province-li " data-poid="700000000" data-sname="江苏" data-sid="3a89363b4ffbffdcdfcc98f4">江苏</li>
+            <li class="province-li " data-poid="2400000000" data-sname="江西" data-sid="c9b8ae5f1d3a784045d69ef1">江西</li>
+            <li class="province-li " data-poid="2300000000" data-sname="吉林" data-sid="5ec98727464640351f1219f0">吉林</li>
+            <li class="province-li " data-poid="1300000000" data-sname="辽宁" data-sid="052c5d285f52dec9c3f9f1f1">辽宁</li>
+            <li class="province-li " data-poid="2200000000" data-sname="内蒙古" data-sid="f6187498603a75a3a4c7c5f3">内蒙古</li>
+            <li class="province-li " data-poid="3200000000" data-sname="宁夏" data-sid="dc65d60419efc717ac2d0af0">宁夏</li>
+            <li class="province-li " data-poid="3100000000" data-sname="青海" data-sid="7423aa3f6703cc8575ed39f6">青海</li>
+            <li class="province-li " data-poid="1400000000" data-sname="山东" data-sid="4810309ea171641493d817f6">山东</li>
+            <li class="province-li " data-poid="1000000000" data-sname="陕西" data-sid="1fb09a056d0754c85f197bf5">陕西</li>
+            <li class="province-li " data-poid="2100000000" data-sname="山西" data-sid="68cf7ae3b9d414ff762fddf3">山西</li>
+            <li class="province-li " data-poid="800000000" data-sname="四川" data-sid="8e8da744ec5be32fd14c6cf7">四川</li>
+            <li class="province-li " data-poid="500000000" data-sname="天津" data-sid="cc11463263cf7ae3b9d4dff3">天津</li>
+            <li class="province-li " data-poid="3300000000" data-sname="新疆" data-sid="295291f256c0a53ec6ad8cf7">新疆</li>
+            <li class="province-li " data-poid="2900000000" data-sname="西藏" data-sid="f61b7498603a75a3a4c7c5f0">西藏</li>
+            <li class="province-li " data-poid="600000000" data-sname="浙江" data-sid="9520608cbb0e13551b12a1f1">浙江</li>
+        </ul>
+    </div>
+    {@/if}
+</section>
+
+<script>
+    var Bridge = require('Bridge');
+    window.host = 'http://lvyou.baidu.com/';
+    var eventId = '${eventId}';
+
+    ready(function(){
+        require.async('./index.js');
+        Bridge.setTitle('${title}');
+        /*开启分享和刷新功能*/
+        if(/(Nuomi|baidumap)/i.test(navigator.userAgent)) {
+            Bridge.initShare({
+                title: '${shareTitle}',
+                content: '${shareContent}',
+                imgUrl: "http://webmap3.map.bdimg.com/maps/services/thumbnails?width=222&height=208&quality=95&align=middle,middle&src="+"${logo}",
+                url: location.href
+            });
+        }
+    });
+</script>

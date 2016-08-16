@@ -1,0 +1,212 @@
+<% include ../layout/header %>
+<body class="app" ng-app="ferrisApp">
+<% include ../layout/top-bar %>
+<section class="layout">
+  <% include ../layout/side %>
+  <section class="main-content"ng-controller="applyCtl">
+    <div class="content-wrap">
+      <div class="wrapper">
+        <section class="panel">
+          <header class="panel-heading">权限管理</header>
+          <div class="panel-body">
+            <div>你当前的权限是: <strong class="text-primary"><%=authority%></strong></div>
+            <%if ('visitor' == authority || 'admin' == authority) {%>
+                <form class="form-inline" style="margin-top:10px;">
+                  <select class="form-control" ng-model="authority">
+                    <%if ('visitor' == authority) {%>
+                    <option value="admin">管理员</option>
+                    <%}%>
+                    <option value="superadmin">超级管理员</option>
+                  </select>
+                  <button style="margin-left: 10px;" class="btn btn-primary" data-id="" ng-click="applyAuth()">申请权限</button>
+                </form>
+
+              <%if (applylogs.length > 0) {%>
+                <table class="table table-bordered table-striped" style="margin-top:10px;">
+                  <thead>
+                  <tr>
+                    <th>申请人</th>
+                    <th>申请权限</th>
+                    <th>申请时间</th>
+                    <th>审核人</th>
+                    <th>当前状态</th>
+                  </tr>
+                  </thead>
+                  <tbody id="J-container">
+                  <tr>
+                    <td>
+                      <%=applylogs[0].user_name%>
+                    </td>
+                    <td>
+                      <%=applylogs[0].apply_authority%>
+                    </td>
+                    <td>
+                      <%=applylogs[0].date%>
+                    </td>
+                    <td>
+                      <% for(var i=0; i<superadmin.length; i++) {%>
+                      <%= superadmin[i].username %>
+                      <% } %>
+                    </td>
+                    <td>
+                      <%if (applylogs[0].status == 'doing') {%><span class="text-primary">进行中</span><%}%>
+                      <%if (applylogs[0].status == 'eject') {%><span class="text-danger">被拒绝</span><%}%>
+                      <%if (applylogs[0].status == 'accept') {%><span class="text-success">通过</span><%}%>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              <%}%>
+            <%}%>
+
+            <%if ('superadmin' == authority) {%>
+            <div class="table-responsive" style="margin-top:10px;">
+              <style>
+                table.table-bordered td {
+                  vertical-align: middle !important;
+                }
+              </style>
+              <table class="table table-bordered table-striped" style="margin-top:10px;">
+                <thead>
+                <tr>
+                  <th>申请人</th>
+                  <th>申请权限</th>
+                  <th>申请时间</th>
+                  <th width="50%">操作</th>
+                </tr>
+                </thead>
+                <tbody id="J-container">
+                <%if (applylogs.length>0) {%>
+                <%for(var i=0; i<applylogs.length; i++) {%>
+                <tr>
+                  <td>
+                    <%=applylogs[i].user_name%>
+                  </td>
+                  <td>
+                    <%=applylogs[i].apply_authority%>
+                  </td>
+                  <td>
+                    <%=applylogs[i].date%>
+                  </td>
+                  <td>
+                    <button class="btn btn-success" ng-click="accept('<%=applylogs[i].user_name%>', '<%=applylogs[i].apply_authority%>');">通过申请</button>
+                    <button class="btn btn-danger" ng-click="eject('<%=applylogs[i].user_name%>', '<%=applylogs[i].apply_authority%>');">残忍拒绝</button>
+                  </td>
+                </tr>
+                <% } %>
+                <% } %>
+                <%if (applylogs.length==0) {%>
+                <tr>
+                  <td colspan="4" align="center">
+                    暂无申请
+                  </td>
+                </tr>
+                <% } %>
+                </tbody>
+              </table>
+            </div>
+            <%}%>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</section>
+<script>
+  angular.module("ferrisApp", []).controller('applyCtl', function ($scope, $http) {
+    $scope.applyAuth = function () {
+      var w = $.confirm({
+        "content": "你确定要申请嘛，亲爱的？",
+        "confirm": function () {
+          w.close();
+          if(!!$scope.authority) {
+            $.ajax({
+              method: "get",
+              url: "/authority/apply?apply_authority=" + $scope.authority,
+              success: function(data){
+                if(data.errno == 0) {
+                  $.alert({
+                    content: '已经提交申请，稍微等一会再来看看呗',
+                    "confirm": function () {
+                      location.reload();
+                    }
+                  });
+                }
+                else {
+                  $.alert({
+                    content: data.msg
+                  });
+                }
+              },
+              error: function(){
+                $.alert({
+                  content: '额，系统出错了！'
+                });
+              }
+            });
+          }
+          else {
+            $.alert({
+              content: '大哥你到底要申请什么权限啊？？'
+            });
+          }
+        }
+      });
+    }
+    $scope.accept = function(username, authority){
+      $.ajax({
+        url: "/authority/accept?username=" + username + '&authority=' + authority,
+        method: "get",
+        success: function(data){
+          if(data.errno == '0') {
+            $.alert({
+              content: '操作成功！',
+              confirm: function(){
+                location.reload();
+              }
+            });
+          }
+          else {
+            $.alert({
+              content: data.msg
+            });
+          }
+        },
+        error: function(){
+          $.alert({
+            content: '额，系统出错了！'
+          });
+        }
+      });
+    }
+    $scope.eject = function(username, authority){
+      $.ajax({
+        url: "/authority/eject?username=" + username + '&authority=' + authority,
+        method: "get",
+        success: function(data){
+          if(data.errno == '0') {
+            $.alert({
+              content: '操作成功！',
+              confirm: function(){
+                location.reload();
+              }
+            });
+          }
+          else {
+            $.alert({
+              content: data.msg
+            });
+          }
+        },
+        error: function(){
+          $.alert({
+            content: '额，系统出错了！'
+          });
+        }
+      });
+    }
+  });
+</script>
+<% include ../layout/bottom-bar %>
+</body>
+<% include ../layout/footer %>

@@ -1,0 +1,127 @@
+.discount {
+    padding: 15px;
+    .loading {
+        font-size: 14px;
+        color: gray;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+    }
+    li.hideitem {
+        display: none;
+    }
+    .more {
+        font-size: 14px;
+        color: gray;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        .more-arrow{
+            display:inline-block;
+            margin-left:3px;
+        }
+        .rotate {
+            -webkit-transform: rotateX(180deg);
+        }
+    }
+    .text {
+        font-size: 14px;
+        color: gray;
+        line-height: 20px;
+    }
+    .discount-list {
+        display: -webkit-box;
+        margin-bottom: 30px;
+
+
+        a.discount-list-item {
+            display: -webkit-box;
+            width: 100%;
+        }
+        .item-banner {
+            display: block;
+            background-size: cover; 
+            -moz-background-size: cover;
+            overflow: hidden;
+            width: 33%;
+            padding-bottom: 33%;
+            position: relative;
+            img {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+        .item-ctn {
+            position: relative;
+            display: -webkit-box;
+            margin-left:12px;
+            -webkit-box-flex: 1;
+            .item-title {
+                font-size: 14px;
+                color:#504F51;
+                line-height: 18px;
+                display:-webkit-box;
+                overflow: hidden;
+                -webkit-line-clamp:3;
+                -webkit-box-orient:vertical;
+            }
+            .item-stars {
+              height: 20px;
+              li.star {
+                  display: inline-block;
+                  width: 13px;
+                  height: 11px;
+                  background: url('./img/star-yellow.png') center center no-repeat;
+                  background-size: cover;
+              }
+              li.star-grey {
+                background-image: url('./img/star-grey.png');
+              }
+              .item-stars li.star-half {
+                background-image: url('./img/star-half.png');
+              }
+            }
+            .item-tags  {
+                li.tag {
+                  display: inline-block;
+                  border: 1px solid #FFD09D;
+                  color: #FFD09D;
+                  font-size: 12px;
+                  line-height: 12px;
+                  padding: 0 5px;
+                  border-radius: 10px;
+                }
+                li.tag-bgcolor {
+                  background: #FF9D35;
+                  border-color: #FF9D35;
+                  color: #FCE5C9;
+                }
+            }
+            .item-count {
+                color:#C8C7C6;
+            }
+            .item-buy{
+                position: absolute;
+                bottom:0;
+                left: 0;
+                button {
+                    border:none;
+                    background: #FB3C55;
+                    color:white;
+                    font-size:18px;
+                    min-width: 100px;
+                    line-height: 35px;
+                    border-radius: 3px;
+                }
+                span {
+                    margin-left: 10px;
+                    font-size: 12px;
+                    color:#C8C7C6;
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+}

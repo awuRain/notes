@@ -1,0 +1,117 @@
+body {
+    background: #f3f6f5;
+}
+
+.header {
+    position: relative;
+    margin-bottom: 20/640*100%;
+    .banner {
+        height: 0px;
+        line-height: 0px;
+        padding-bottom: 93%;
+        background-size: cover;
+        .shadow {
+            height: 0px;
+            line-height: 0px;
+            padding-bottom: 93%;
+            background: -webkit-linear-gradient(top, rgba(50, 50, 50, 0) 90%, #313131);
+            top: 0px;
+            width: 100%;
+            position: absolute;
+        }
+    }
+    .select-city {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+        color: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        display: -webkit-box;
+        height: 30px;
+        line-height: 30px;
+        box-sizing: border-box;
+        .c1 {
+            -webkit-box-flex: 1;
+        }
+        .c2 {
+            padding-right: 5px;
+        }
+        .c4 {
+            width: 80px;
+            height: 25px;
+            line-height: 25px;
+            color: #f83f59;
+            display: -webkit-box;
+            background: #fff;
+            border-radius: 4px;
+            text-align: center;
+            -webkit-box-pack: center;
+            overflow: hidden;
+        }
+    }
+}
+
+#J_province-flayer,
+#J_coupon-faile-flayer,
+#J_coupon-success-flayer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    display: none;
+    box-sizing: border-box;
+    top: 0px;
+    left: 0px;
+}
+
+#J_province-flayer .province-title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+#J_province-flayer .province-ul {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.province-ul .province-li {
+    display: inline-block;
+    width: 70px;
+    height: 26px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    float: left;
+    line-height: 26px;
+    margin: 6px 5px;
+    border-radius: 3px;
+}
+
+.province-ul .province-li-active {
+    background: #ff1a3e;
+    color: #fff;
+}
+
+.J_province-close,
+.J_rule-close,
+.J_coupon-success-close,
+.J_coupon-faile-close {
+    width: 40px;
+    height: 40px;
+    background: url(./img/close-icon.png) no-repeat;
+    background-size: 100%;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}

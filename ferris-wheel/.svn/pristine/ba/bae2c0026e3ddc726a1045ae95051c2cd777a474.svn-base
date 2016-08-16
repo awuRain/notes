@@ -1,0 +1,107 @@
+<% include ../layout/header %>
+<body class="app" ng-app="ferrisApp">
+<% include ../layout/top-bar %>
+<section class="layout">
+  <% include ../layout/side %>
+  <section class="main-content" ng-controller="listCtl">
+    <div class="content-wrap">
+      <div class="wrapper">
+        <section class="panel">
+          <header class="panel-heading">活动列表</header>
+          <div class="panel-body">
+            <button id="J-Createevent" class="btn btn-primary" data-id="" ng-click="createEvent()">创建新活动</button>
+            <div class="table-responsive" style="margin-top:10px;">
+              <table class="table table-bordered table-striped" ng-cloak>
+                <thead>
+                <tr>
+                  <th>活动名称</th>
+                  <th>创建者</th>
+                  <th>当前状态</th>
+                  <th width="50%">操作</th>
+                </tr>
+                </thead>
+                <tbody id="J-container">
+                <tr ng-if="events.length == 0">
+                  <td colspan="4" align="center">还木有配置活动</td>
+                </tr>
+                <tr ng-repeat="event in events">
+                  <td>{{event.event_name}}</td>
+                  <td>{{event.user_id}}</td>
+                  <td>
+                    <span class="text-danger" ng-if="event.status != '已上线'">{{event.status}}</span>
+                    <span class="text-success" ng-if="event.status=='已上线'">{{event.status}}</span>
+                  </td>
+                  <td>
+                    <a href="javascript:;" class="text-primary text-dotted" ng-click="removeEvent(event, $index);" ng-if="event.status !=='已上线'">删除</a>
+                    <a href="javascript:;" class="text-primary text-dotted" ng-click="editSection(event);">编辑区块</a>
+                    <a href="javascript:;" class="text-primary text-dotted" ng-click="editData(event);">编辑数据</a>
+                    <a href="javascript:;" class="text-primary text-dotted" ng-click="editData(event);">发起上线</a>
+                    <a href="javascript:;" class="text-primary text-dotted" ng-click="log(event);">操作记录</a>
+                    <a href="http://map.baidu.com/fwmap/upload/lv-event-cms/{{event.event_id}}/page/index/index.html" class="text-primary text-dotted" target="_blank" ng-if="(event.online == 'map') && (event.status =='已上线')">浏览线上</a>
+                    <a href="http://lvyou.baidu.com/static/event-cms/{{event.event_id}}/page/index/index.html" class="text-primary text-dotted" target="_blank" ng-if="(event.online != 'map') && (event.status =='已上线')">浏览线上</a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <button class="btn btn-default" style="margin-bottom: 20px;" type="submit" ng-click="back()">返回首页</button>
+      </div>
+    </div>
+    <a class="exit-offscreen"></a>
+  </section>
+</section>
+<script>
+  angular.module("ferrisApp", []).controller('listCtl', function ($scope, $http) {
+    $scope.events = [<%-events%>];
+    var template_id = utils.getRequestParam('template_id');
+    $scope.createEvent = function(){
+      location.href = '/event/section?template_id=' + template_id;
+    }
+    $scope.back = function(){
+      location.href = '/';
+    }
+    $scope.removeEvent = function(event, index) {
+      $.confirm({
+        content:'确定要删除嘛？',
+        confirm: function(){
+          $.ajax({
+            method: 'post',
+            url:'/event/list/removeEvent',
+            data: {
+              event_name: event.event_name
+            },
+            success: function(data){
+              $.alert({
+                content: '删除成功！'
+              });
+              $scope.$apply(function(){
+                $scope.events.splice(index, 1);
+              });
+            },
+            error: function(){
+              $.alert({
+                content: '额，系统出错了！'
+              });
+            }
+          });
+        }
+      });
+    }
+    $scope.log = function(event) {
+      location.href = '/event/log?event_name=' + encodeURIComponent(event.event_name);
+    }
+    $scope.editSection = function(event){
+      location.href = '/event/section?event_name=' + encodeURIComponent(event.event_name) + '&template_id=' + template_id;
+    }
+    $scope.editData = function(event){
+      location.href = '/event/data?event_name=' + encodeURIComponent(event.event_name) + '&template_id=' + template_id + '&sections=' + event.select_section;
+    }
+  });
+</script>
+<% include ../layout/bottom-bar %>
+</body>
+
+
+<% include ../layout/footer %>

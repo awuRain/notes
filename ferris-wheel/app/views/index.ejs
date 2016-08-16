@@ -1,0 +1,65 @@
+<% include layout/header %>
+<link rel="stylesheet" href="/css/data.css">
+<body class="app" ng-app="ferrisApp">
+<% include layout/top-bar %>
+<section class="layout">
+  <% include layout/side %>
+  <section class="main-content" ng-controller="indexCtl">
+      <div class="content-wrap">
+      <div class="wrapper">
+        <style>
+          strong {
+            color: rgb(63, 139, 134);
+          }
+          .panel-body span {
+            color: rgb(63, 139, 134);
+            font-weight: bold;
+          }
+          .item-info {
+            display: -webkit-box;
+            width: 600px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+          }
+          .item-info i {
+            font-size: 80px;
+          }
+          .item-info .item {
+            text-align: center;
+            -webkit-box-flex: 1;
+          }
+          .tip {
+            font-size: 13px;
+            line-height: 1.8;
+          }
+          .tip a {
+            color: rgb(63, 139, 134);
+            font-weight: bold;
+          }
+        </style>
+        <section class="panel">
+          <div class="panel-body">
+            <div style="font-size: 17px;"><strong>摩天轮</strong>是运营活动的快速搭建平台，通过<strong>摩天轮</strong>你可以：</div>
+            <section class="item-info">
+              <div class="item"><i class="ti-layout-cta-btn-right"></i><div>灵活配置，随心所欲</div></div>
+              <div class="item"><i class="ti-eye"></i><div>线下预览，安心保证</div></div>
+              <div class="item"><i class="ti-cloud-up"></i><div>一键上线，随时随地</div></div>
+            </section>
+            <div class="tip">项目模版接入文档请见<a href="" target="_blank">这里</a></div>
+            <div class="tip">权限问题及使用问题请联系<span>于伯阳 (yuboyang01@baidu.com)</span></div>
+            <div class="tip">技术问题请联系<span>闫斌 (yanbin01@baidu.com)</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</section>
+<script>
+  angular.module("ferrisApp", []).controller('indexCtl', function ($scope, $http) {
+
+  });
+</script>
+
+<% include layout/bottom-bar %>
+</body>
+<% include layout/footer %>

@@ -1,0 +1,11 @@
+var mongoose = require('mongoose'),
+  Schema = mongoose.Schema;
+
+var TemplateSchema = new Schema({
+  "template_id": String,
+  "page_id": String,
+  "section":Array,
+  "default": Array
+});
+
+mongoose.model('Template', TemplateSchema);

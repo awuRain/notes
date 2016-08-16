@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="fixedTip">
+	<a  data-taplog="${tapLog}" style="background-image:url('${img}'); bottom: ${bottom}; width: ${actualWidth/16}rem;height: ${actualWidth/(width/height)/16}rem;${direction=='left'?'left':'right'}: 0;" data-url="${url}">
+	</a>
+</section>
+
+
+<script>
+	var s = "${tapLog}";
+	console.log(s);
+    ready(function(){
+        require('./index.js');
+    });
+</script>

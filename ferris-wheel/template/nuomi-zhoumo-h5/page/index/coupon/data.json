@@ -1,0 +1,24 @@
+{
+	"couponList": [{
+		"title": "满199可用",
+		"price": "30",
+		"pbid": "aa",
+		"id": "1"
+	},{
+		"title": "满199可用",
+		"price": "30",
+		"pbid": "bb",
+		"id": "2"
+	},{
+		"title": "满199可用",
+		"price": "50",
+		"pbid": "cc",
+		"id": "3"
+	},{
+		"title": "满199可用",
+		"price": "50",
+		"pbid": "dd",
+		"id": "4"
+	}]
+}
+

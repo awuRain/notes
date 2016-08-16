@@ -1,0 +1,57 @@
+<script>
+  var utils = {
+    getRequestParam: function(param, uri) {
+      var value;
+      uri = uri || window.location.href;
+      value = uri.match(new RegExp('[\?\&]' + param + '=([^\&\#]*)([\&\#]?)', 'i'));
+      return value ? decodeURIComponent(value[1]) : value;
+    }
+  };
+  //获取底部的诗歌
+  $.get('/poem/list', function(data){
+    if(data.errno == "0") {
+      $('.bottom-bar').html(data.data);
+    }
+    else {
+      $('.bottom-bar').html('什么都没刷出来...');
+    }
+  });
+  //弹窗组件的全局设置
+  jconfirm.defaults = {
+    title: '提示',
+    content: '',
+    contentLoaded: function(){
+    },
+    icon: '',
+    confirmButton: '确定',
+    cancelButton: '取消',
+    confirmButtonClass: 'btn-default',
+    cancelButtonClass: 'btn-default',
+    theme: 'supervan',
+    animation: 'zoom',
+    closeAnimation: 'scale',
+    animationSpeed: 400,
+    animationBounce: 1.2,
+    keyboardEnabled: false,
+    rtl: false,
+    confirmKeys: [13, 32], // ENTER or SPACE key
+    cancelKeys: [27], // ESC key
+    container: 'body',
+    confirm: function () {
+    },
+    cancel: function () {
+    },
+    backgroundDismiss: true,
+    autoClose: false,
+    closeIcon: null,
+    columnClass: 'col-md-6 col-md-offset-3',
+    onOpen: function(){
+    },
+    onClose: function(){
+    },
+    onAction: function(){
+    }
+  };
+</script>
+</body>
+</html>

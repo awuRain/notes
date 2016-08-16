@@ -1,0 +1,15 @@
+.title {
+  font-size: 18px;
+}
+.bottom-bar {
+  background: #fff;
+  font-size: 12px;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+  color: rgb(142, 142, 142);
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  border-top: 1px solid #eeeff8;
+}

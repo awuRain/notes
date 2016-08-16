@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="list" style="background-color: ${themecolor}">
+    <ul>
+        {@each list as item}
+        <li data-date="${item.date}" data-begintime="${item.begintime}" data-endtime="${item.endtime}" data-id="${item.ticketId}" data-lvpos="${item.lvpos}">
+            <div class="title" style="background-color: ${buttoncolor}">${item.title}</div>
+            <div class="banner" style="background-image:url(${item.banner})"></div>
+            <div class="text">
+                <div class="protitle">${item.protitle}</div>
+                <div class="subtitle">${item.subtitle}</div>
+            </div>
+            <div class="mask">
+                <div class="over">已结束</div>
+            </div>
+        </li>
+        {@/each}
+    </ul>
+</section>
+<script type="text/javascript">
+    BNJSReady(function(){
+        require('./index.js');
+        window.Bridge.setTitle('${title}');
+    });
+</script>

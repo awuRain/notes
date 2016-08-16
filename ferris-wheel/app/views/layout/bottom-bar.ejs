@@ -1,0 +1,16 @@
+
+<section class="bottom-bar"></section>
+<script>
+  //找到url中的tag或者template_id
+  function getRequestParam(param, uri) {
+    var value;
+    uri = uri || window.location.href;
+    value = uri.match(new RegExp('[\?\&]' + param + '=([^\&\#]*)([\&\#]?)', 'i'));
+    return value ? decodeURIComponent(value[1]) : value;
+  }
+  $(function(){
+    var menu = getRequestParam('template_id') || getRequestParam('tag');
+    $('span[class="' + menu + '"]').addClass('highlighted');
+  });
+
+</script>

@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="hot" style="background: ${themecolor};">
+    <h2 class="section-title">国内精选</h2>
+    <ul class="guoneijingxuan-ul">
+        {@each guoneijingxuan as item}
+            <li class="J_Guonei" data-taplog="${item.taplog}" style="background-image: url('${item.img}')" data-url="${item.url}"></li>
+        {@/each}
+    </ul>
+</section>
+
+<script>
+    var guoneiLog = '${guoneiLog}';
+    ready(function(){
+        require('./index.js');
+    });
+</script>

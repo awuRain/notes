@@ -1,0 +1,10 @@
+<link href="./index.less" rel="stylesheet">
+{@each banner as item,index}
+<section class="header header-${index}" style="background: transparent url('${item.url}') center center no-repeat; {@if index==0}display:block;{@else}display:none;{@/if}"></section>
+{@/each}
+
+<script>
+  require.async('./index.js', function(e){
+    e.init('${eventId}')
+  });
+</script>

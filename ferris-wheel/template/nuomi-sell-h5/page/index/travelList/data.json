@@ -1,0 +1,38 @@
+{
+  "themecolor":"#fff5d8", "buttoncolor":"#f83f59",
+  "tapLog":"lv5197728",
+  "list":[
+    {
+      "title": "http://cp01-qa-lvyou-001.cp01.baidu.com:8080/static/event-cms/nuomispring/page/index/ticketList/img/t1.png",
+      "list": [
+        {
+          "banner": "http://g.hiphotos.baidu.com/baike/w%3D268/sign=11a124020955b3199cf985737ba88286/e824b899a9014c08d06440a6097b02087bf4f452.jpg",
+          "subtitle": "著名的皇室花园，春季的迎春、桃花、杏花等竞相开放，是京城划船赏花的完美之所。",
+          "title": "北京 | 颐和园",
+          "price": "100",
+          "tid":"38170"
+        },{
+          "banner": "http://g.hiphotos.baidu.com/baike/w%3D268/sign=11a124020955b3199cf985737ba88286/e824b899a9014c08d06440a6097b02087bf4f452.jpg",
+          "subtitle": "著名的皇室花园，春季的迎春、桃花、杏花等竞相开放，是京城划船赏花的完美之所。",
+          "title": "北京 | 颐和园",
+          "price": "100"
+        }
+      ]
+    },{
+      "title": "http://cp01-qa-lvyou-001.cp01.baidu.com:8080/static/event-cms/nuomispring/page/index/ticketList/img/t1.png",
+      "list": [
+        {
+          "banner": "http://g.hiphotos.baidu.com/baike/w%3D268/sign=11a124020955b3199cf985737ba88286/e824b899a9014c08d06440a6097b02087bf4f452.jpg",
+          "subtitle": "著名的皇室花园，春季的迎春、桃花、杏花等竞相开放，是京城划船赏花的完美之所。",
+          "title": "北京 | 颐和园",
+          "price": "100"
+        },{
+          "banner": "http://g.hiphotos.baidu.com/baike/w%3D268/sign=11a124020955b3199cf985737ba88286/e824b899a9014c08d06440a6097b02087bf4f452.jpg",
+          "subtitle": "著名的皇室花园，春季的迎春、桃花、杏花等竞相开放，是京城划船赏花的完美之所。",
+          "title": "北京 | 颐和园",
+          "price": "100"
+        }
+      ]
+    }
+  ]
+}

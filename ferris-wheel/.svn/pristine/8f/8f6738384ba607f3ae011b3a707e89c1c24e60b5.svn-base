@@ -1,0 +1,56 @@
+.section {
+  height: 40px;
+  width: 80%;
+  line-height: 40px;
+  text-align: center;
+  background: #C7E6EF;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: bold;
+}
+.select-section {
+  height: 40px;
+  width: 80%;
+  text-align: center;
+  background: rgb(65, 145, 182);
+  margin-bottom: 5px;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: bold;
+  display: inline-block;
+}
+.select-section .box-text {
+  width: 50%;
+  margin: 0px auto;
+  overflow: hidden;
+  line-height: 39px;
+}
+.select-section span {
+  float: right;
+  cursor: pointer;
+  margin-right: 11px;
+  margin-top: 12px;
+}
+.chooseList {
+  border-right: 1px solid #eeeff8;
+  text-align: center;
+}
+.selectList {
+  text-align: center;
+}
+.section-panel {
+  -moz-user-select:none;/*火狐*/
+  -webkit-user-select:none;/*webkit浏览器*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*早期浏览器*/
+  user-select:none;
+}
+.section-title {
+  text-align: left;
+  margin-bottom: 10px;
+  width: 80%;
+  display: inline-block;
+}
+

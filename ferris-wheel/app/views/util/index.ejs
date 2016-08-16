@@ -1,0 +1,101 @@
+<% include ../layout/header %>
+<script src="/components/jquery-zclip/jquery.zclip.min.js"></script>
+<link rel="stylesheet" href="/css/data.css">
+<body class="app" ng-app="ferrisApp">
+<% include ../layout/top-bar %>
+<section class="layout">
+  <% include ../layout/side %>
+  <section class="main-content" ng-controller="utilCtl">
+    <div class="content-wrap">
+      <div class="wrapper">
+        <section class="panel">
+          <header class="panel-heading">链接生成工具</header>
+          <div class="panel-body">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <label class="label6">选择活动：</label>
+                    <select class="form-control" style="width: 30%;" ng-model="event" ng-options="event.event_id as event.event_name for event in event_list" ng-change="selectEventName()">
+                      <option value="">--请选择--</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="label6">选择配置页面：</label>
+                    <select class="form-control" style="width: 30%;" ng-model="event_src">
+                      <option value="0">糯米首页</option>
+                      <option value="1">糯米频道页顶部banner</option>
+                      <option value="2">糯米push</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="label6">输入来源参数：</label>
+                    <input type="input" class="form-control" ng-model="event_fr" style="width: 30%;"/>
+                  </div>
+                </form>
+                <div class="alert alert-info" role="alert" ng-show="show_url" ng-cloak>
+                  <strong>{{schema_url}}</strong>
+                </div>
+                <button class="btn btn-success" style="margin-bottom: 20px;"  type="submit" ng-click="getLink()">生成链接</button>
+                <!--<button class="btn btn-success" style="margin-bottom: 20px;"  type="submit" ng-click="copyLink()">一键复制</button>-->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <a class="exit-offscreen"></a>
+  </section>
+</section>
+<% include ../layout/bottom-bar %>
+</body>
+<script>
+  angular.module("ferrisApp", []).controller('utilCtl', function ($scope, $http) {
+    $scope.event_list = <%- JSON.stringify(event_list) %>;
+    $scope.show_url = false;
+    $scope.selectEventName = function(event){
+      console.log($scope.selected);
+    }
+    $scope.getLink = function(){
+      console.log($scope.event_fr);
+      console.log($scope.event);
+      console.log($scope.event_src);
+      if(!$scope.event_fr) {
+        alert('小主，没有fr臣妾搞不定呀！');
+        return;
+      }
+      if(!$scope.event) {
+        alert('小主，不选活动臣妾搞不定呀！');
+        return;
+      }
+      if(!$scope.event_src) {
+        alert('小主，不选配置页面臣妾搞不定呀！');
+        return;
+      }
+
+      $scope.show_url = true;
+      var schema_tpl = 'bainuo://component?url=http://lvyou.baidu.com/static/event-cms/{event_id}/page/index/index.html&fr={event_fr}';
+      var url_tpl = 'http://lvyou.baidu.com/static/event-cms/{event_id}/page/index/index.html?fr={event_fr}';
+      var url_push_tpl = 'http://lvyou.baidu.com/static/event-cms/{event_id}/page/index/index.html';
+      switch($scope.event_src) {
+        case "0":
+          $scope.schema_url = schema_tpl.replace('{event_id}', $scope.event).replace('{event_fr}', $scope.event_fr);
+          break;
+        case "1":
+          $scope.schema_url = url_tpl.replace('{event_id}', $scope.event).replace('{event_fr}', $scope.event_fr) + '|' +
+            schema_tpl.replace('{event_id}', $scope.event).replace('{event_fr}', $scope.event_fr);
+          break;
+        case "2":
+          $scope.schema_url = 'url:' + url_push_tpl.replace('{event_id}', $scope.event).replace('{event_fr}', $scope.event_fr) + ',fr:' + $scope.event_fr
+          break;
+
+      }
+    }
+
+    $scope.copyLink = function(){
+
+    }
+  });
+</script>
+
+<% include ../layout/footer %>

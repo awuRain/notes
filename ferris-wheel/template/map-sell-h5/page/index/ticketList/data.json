@@ -1,0 +1,23 @@
+{
+  "tapLog":"lv5197728",
+  "list":[
+    {
+      "citycode":"500010000",
+      "list": [
+        {
+          "banner": "http://g.hiphotos.baidu.com/baike/w%3D268/a.jpg",
+          "subtitle": "著名的皇室花园，春季的迎春、桃花、杏花等竞相开放。",
+          "title": "北京 | 颐和园",
+          "price": "100",
+          "uid": "2a7a25ecf9cf13636d3e1bad"
+
+        },{
+          "banner": "http://g.hiphotos.baidu.com/baike/w%3D268/b.jpg",
+          "subtitle": "著名的皇室花园，春季的迎春、桃花、杏花等竞相开放。",
+          "title": "北京 | 颐和园",
+          "price": "100",
+          "uid": "2a7a25ecf9cf13636d3e1bad"
+        }
+      ]
+    }]
+}

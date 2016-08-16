@@ -1,0 +1,75 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header" style="background: ${themecolor};">
+    <section class="banner">
+        <img src="${banner}" width="100%" />
+        <div class="rule J-rule-btn">活动规则</div>
+        <div class="shadow"></div>
+    </section>
+    <div class="select-city">
+        <div class="c1">选择所在的地区</div>
+        <div class="c4 J_Selectcity" pb_id="${selectLogId}">
+            <div class="c2">加载中</div>
+            <div class="c3"></div>
+        </div>
+    </div>
+</section>
+<!--活动规则遮罩层-->
+<div id="J-rule">
+    <span class="J_rule-close"></span>
+    <div class="rule-title">
+        <span class="rule-icon-left"></span>活动规则<span class="rule-icon-right"></span>
+    </div>
+    <div class="rulelist">
+        <ul>
+            <li>1）活动时间：每周五-周日，百度地图景点门票全场优惠；</li>
+            <li>2）每周五-周日，优惠券每日放出、早抢早得，每种面额只可领取一张；</li>
+            <li>3）本周领取的优惠券，仅限本周五-周日使用，过期无效；</li>
+            <li>4）使用优惠券的订单不支持部分退款，退款后不退换优惠券。</li>
+            <li>5)  若用户取消订单，或者下单20分钟内未支付、订单自动取消后，优惠券失效不可再使用；</li>
+            <li>6）客服电话：400-0998-998。</li>
+            <li>7）对恶意刷单、虚假交易等违规行为，百度有权不予补贴，可以不通知即取消用户参加活动的资格。</li>
+            <li>8）本次活动全部优惠成本由百度承担，与任何第三方无关；在法律违规许可范围内，活动全部解释权归百度所有。</li>
+        </ul>
+    </div>
+</div>
+<!--选择城市遮罩层-->
+<div id="J_province-flayer" style="display: none;">
+    <span class="J_province-close"></span>
+    <span class="province-title">选择你想出行的省份</span>
+    <div class="no-activity J-noactivity">
+        抱歉你所在的地区暂未开放活动
+        <br/>先看看别的地区吧
+    </div>
+    <div class="no-area J-noarea">请选择你所在的地区</div>
+    <ul class="province-ul">
+        <li class="province-li" data-poid="100000000" data-sname="北京" data-cityid="131" data-sid="795ac511463263cf7ae3def3">北京</li>
+        <li class="province-li" data-poid="200000000" data-sname="上海" data-cityid="289" data-sid="289d2b074d001b3184b27ef7">上海</li>
+        <li class="province-li" data-poid="300000000" data-sname="广东" data-cityid="257" data-sid="b0240abb6cf9c05f301acdf3">广东</li>
+        <li class="province-li" data-poid="1500000000" data-sname="安徽" data-cityid="127" data-sid="fb0af2c9c005c401f11576f3">安徽</li>
+        <li class="province-li" data-poid="1900000000" data-sname="福建" data-cityid="300" data-sid="55163f0fd41f9757809972f0">福建</li>
+        <li class="province-li" data-poid="400000000" data-sname="湖北" data-cityid="218" data-sid="9607cc8575ed2e69961327f7">湖北</li>
+        <li class="province-li" data-poid="1200000000" data-sname="湖南" data-cityid="158" data-sid="2f1a4dadc1b446649c1ec9f3">湖南</li>
+        <li class="province-li" data-poid="700000000" data-sname="江苏" data-cityid="315" data-sid="3a89363b4ffbffdcdfcc98f4">江苏</li>
+        <li class="province-li" data-poid="1400000000" data-sname="山东" data-cityid="288" data-sid="4810309ea171641493d817f6">山东</li>
+        <li class="province-li" data-poid="800000000" data-sname="四川" data-cityid="75" data-sid="8e8da744ec5be32fd14c6cf7">四川</li>
+        <li class="province-li" data-poid="500000000" data-sname="天津" data-cityid="332" data-sid="cc11463263cf7ae3b9d4dff3">天津</li>
+        <li class="province-li" data-poid="600000000" data-sname="浙江" data-cityid="179" data-sid="9520608cbb0e13551b12a1f1">浙江</li>
+    </ul>
+</div>
+<script type="text/javascript">
+window.host = 'http://lvyou.baidu.com/';
+window.eventId = '${eventId}';
+window.Bridge = require('Bridge');
+
+ready(function() {
+    Bridge.setTitle('${title}');
+
+    /*开启分享功能*/
+    Bridge.initShare({
+        title: '${sharetitle}',
+        content: '${shareinfo}',
+        imgUrl: "${sharepic}",
+        url: location.href
+    });
+});
+</script>

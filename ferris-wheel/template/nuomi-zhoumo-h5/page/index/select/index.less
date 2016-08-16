@@ -1,0 +1,110 @@
+.select {
+    display: none;
+    .title {
+        color: #ff7200;
+        font-size: 24px;
+        text-align: center;
+        margin: 0 13px 20px;
+        height: 24px;
+        position: relative;
+        .text {
+            z-index: 99;
+            background: #fff;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            left: 50%;
+            width: 108px;
+            text-align: center;
+            margin-left: -54px;
+        }
+        .line {
+            width: 100%;
+            border-top: 1px solid #e9e9e9;
+            position: absolute;
+            bottom: 10px;
+        }
+    }
+    .selectlist {
+        .selectline {
+            // display: -webkit-box;
+            // display: box;
+            padding: 0 1px;
+            overflow: hidden;
+            .item {
+                float: left;
+                width: 50%;
+                padding: 0 3px;
+                box-sizing: border-box;
+                // -webkit-box-flex: 1;
+                // box-flex: 1;
+                .photo {
+                    position: relative;
+                    .photo-wrap {
+                        display: block;
+                        height: 0;
+                        overflow: hidden;
+                        padding-top: 276/360*100%;
+                        position: relative;
+                        img {
+                            width: auto;
+                            height: 100%;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+                    }
+                    .tag {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: #ece9e8;
+                        color: #000;
+                        font-size: 13px;
+                        padding: 5px 10px;
+                        span {
+                            display: inline-block;
+                            width: 9px;
+                            height: 13px;
+                            background: url(./img/tag.png) no-repeat;
+                            background-size: 9px 13px;
+                            vertical-align: bottom;
+                            margin-right: 6px;
+                        }
+                    }
+                    .youhui {
+                        position: absolute;
+                        bottom: -11px;
+                        text-align: center;
+                        width: 100%;
+                        span {
+                            color: #fff;
+                            background: #f8a300;
+                            font-size: 12px;
+                            height: 22px;
+                            line-height: 22px;
+                            display: inline-block;
+                            padding: 0 9px;
+                        }
+                    }
+                }
+                .name {
+                    margin: 24px 0 5px;
+                    font-size: 13px;
+                    color: #4a4a4a;
+                    text-align: center;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                }
+                .price {
+                    color: #ff7200;
+                    font-size: 18px;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

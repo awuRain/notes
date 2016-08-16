@@ -1,0 +1,186 @@
+body {
+    background: #fff!important;
+}
+
+body.notmove {
+    overflow: hidden;
+    height: 100%;
+}
+html.notmove {
+    overflow: hidden;
+    height: 100%;
+}
+
+.header {
+    position: relative;
+    .banner {
+        .shadow {
+            line-height: 0px;
+            background: -webkit-linear-gradient(top, rgba(50, 50, 50, 0) 90%, #313131);
+            width: 100%;
+            position: absolute;
+            height: 93%;
+            bottom: 0;
+        }
+        .rule {
+            position: absolute;
+            padding: 14px 16px;
+            color: #fff;
+            font-size: 14px;
+            text-decoration: underline;
+            top: 0;
+            right: 0;
+            z-index: 999;
+        }
+    }
+    .select-city {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+        color: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        display: -webkit-box;
+        height: 30px;
+        line-height: 30px;
+        box-sizing: border-box;
+        .c1 {
+            -webkit-box-flex: 1;
+        }
+        .c2 {
+            padding-right: 5px;
+        }
+        .c3 {
+            border: 5px solid #f83f59;
+            border-left: 4px dashed transparent;
+            border-right: 4px dashed transparent;
+            border-bottom: none;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 10px;
+        }
+        .c4 {
+            width: 80px;
+            height: 25px;
+            line-height: 25px;
+            color: #f83f59;
+            display: -webkit-box;
+            background: #fff;
+            border-radius: 4px;
+            text-align: center;
+            -webkit-box-pack: center;
+        }
+    }
+}
+
+#J_province-flayer,
+#J_coupon-faile-flayer,
+#J_coupon-success-flayer,
+#J-rule {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    display: none;
+    box-sizing: border-box;
+    top: 0px;
+    left: 0px;
+}
+
+#J_province-flayer .province-title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+#J_province-flayer .no-activity,
+#J_province-flayer .no-area {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 13px;
+    line-height: 21px;
+    display: none;
+}
+
+#J_province-flayer .province-ul {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.province-ul .province-li {
+    display: inline-block;
+    width: 70px;
+    height: 26px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    float: left;
+    line-height: 26px;
+    margin: 6px 5px;
+    border-radius: 3px;
+}
+
+.province-ul .province-li-active {
+    background: #ff1a3e;
+    color: #fff;
+}
+
+.J_province-close,
+.J_rule-close,
+.J_coupon-success-close,
+.J_coupon-faile-close {
+    width: 40px;
+    height: 40px;
+    background: url(./img/close-icon.png) no-repeat;
+    background-size: 100%;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+#J-rule {
+    .rule-title {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 25px;
+        font-weight: bold;
+        .rule-icon-left {
+            width: 33px;
+            height: 24px;
+            background: url(./img/rule-left.png) no-repeat;
+            background-size: 33px 24px;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        .rule-icon-right {
+            width: 33px;
+            height: 24px;
+            background: url(./img/rule-right.png) no-repeat;
+            background-size: 33px 24px;
+            display: inline-block;
+            margin-left: 15px;
+        }
+    }
+    .rulelist {
+        padding: 0 30px;
+        height: 85%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        ul {
+            font-size: 15px;
+            line-height: 22px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+    }
+}

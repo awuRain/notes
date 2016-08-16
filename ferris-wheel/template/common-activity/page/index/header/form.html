@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+    <div class="panel-heading">首屏区块</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label6">首屏大图链接：</label>
+                <input class="form-control" ng-model="data.index.header.logo">
+            </div>
+            <div class="form-group">
+                <label>
+                    <label class="label6">大图宽度：</label>
+                    <input class="form-control" ng-model="data.index.header.logoWidth">
+                </label>
+                <label>
+                    <label class="label6">大图高度：</label>
+                    <input class="form-control" ng-model="data.index.header.logoHeight">
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="label6"><b>显示省市浮层：</b></label>
+                <label>
+                    <input type="radio" value="1" ng-model="data.index.header.hasProvince">显示
+                </label>
+                <label>
+                    <input type="radio" value="0" ng-model="data.index.header.hasProvince">隐藏
+                </label>
+            </div>
+            <div class="form-group" ng-if="data.index.header.hasProvince == 1">
+                <label style="width: 300px;">
+                    <label class="label6">矩形背景颜色：</label>
+                    <input type="color" class="form-control" ng-model="data.index.header.provinceBg" />
+                </label>
+                <label style="width: 300px;">
+                    <label class="label6">矩形文字颜色：</label>
+                    <input type="color" class="form-control" ng-model="data.index.header.provinceTextColor" />
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <label class="label6"><b>显示活动规则：</b></label>
+                    <label>
+                        <input type="radio" value="1" ng-model="data.index.header.hasRule">显示
+                    </label>
+                    <label>
+                        <input type="radio" value="0" ng-model="data.index.header.hasRule">隐藏
+                    </label>
+                </label>
+            </div>
+            <div class="form-group" ng-if="data.index.header.hasRule == 1">
+                <label class="label6"><b>活动规则样式：</b></label>
+                <input class="form-control" type="input" ng-model="data.index.header.rulesCss" />
+            </div>
+            <div class="form-group" ng-if="data.index.header.hasRule == 1">
+                <label class="label6">活动规则：</label>
+                <textarea ng-model="data.index.header.rules" class="form-control" style="height: 200px;" placeholder="活动规则如果大于一条，请回车换行"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="label6">导读文案：</label>
+                <textarea ng-model="data.index.header.text" class="form-control" style="height: 100px;"></textarea>
+            </div>
+        </form>
+    </div>
+</div>

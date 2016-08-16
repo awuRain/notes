@@ -1,0 +1,74 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="list" style="background-color: ${themecolor}" data-taplog="${tapLog}">
+    <ul >
+        <li class="item-list">
+        {@each list as item}
+            <section class="city${item.citycode}" data-citycode="${item.citycode}">
+                <img class="item-title" src="${item.title}"/>
+                <ul>
+                    {@each item.list as i}
+                    <li class="ticket-list" data-uid="${i.uid}">
+                        <div class="item-banner" style="background-image: url(${i.banner});"></div>
+                        <div class="item-ctn">
+                            <div class="item-ctn-left">
+                                <div class="item-ctn-title">
+                                    ${i.title}
+                                </div>
+                                <div class="item-ctn-subtitle">
+                                    ${i.subtitle}
+                                </div>
+                            </div>
+                            <div class="item-ctn-right">
+                                <div class="item-price">特价¥${i.price}起</div>
+                                <div class="item-btn">立即购买</div>
+                            </div>
+                        </div>
+                    </li>
+                    {@/each}
+                </ul>
+            </section>
+        {@/each}
+        </li>
+    </ul>
+</section>
+<script type="text/javascript">
+    require('./index.js');
+</script>
+
+<section class="city100010000" data-citycode="100010000">
+    <img class="item-title" src="http://f.hiphotos.baidu.com/baidu/pic/item/1.png">
+    <ul>
+        <li class="ticket-list" data-tid="10204">
+            <div class="item-banner" style="background-image: url(http://v.hiphotos.baidu.com/baidu/pic/item/1.jpg);"></div>
+            <div class="item-ctn">
+                <div class="item-ctn-left">
+                <div class="item-ctn-title">
+                    北京 | 颐和园
+                </div>
+                    <div class="item-ctn-subtitle">
+                        著名的皇室花园，春季的迎春、桃花、杏花等竞相开放，是京城划船赏花的完美之所。
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

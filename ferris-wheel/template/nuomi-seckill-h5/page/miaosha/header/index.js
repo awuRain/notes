@@ -1,0 +1,2 @@
+var Bridge = window.bridge;
+

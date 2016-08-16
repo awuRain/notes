@@ -1,0 +1,30 @@
+<link href="./index.less" rel="stylesheet">
+<section class="product-list">
+    <section class="product-loading">加载中...</section>
+    {@each productList as item}
+    <section class="product product-${item.type}" data-type="${item.type}" style="display: none;" data-url="${item.url}" data-sid="${item.sid}" data-ptid="${item.ptid}">
+        <section class="product-img" style="background-image:url(${item.img})">
+        </section>
+        <section class="product-info">
+            <div class="top">
+                <div class="title">${item.title}</div>
+                <div class="tag" style="color: ${item.tagcolor};"><span class="globel-iconfont giconf-praise"></span>${item.tag}</div>
+            </div>
+            <div class="detail">${item.detail}</div>
+            <div class="bottom">
+                <div class="price">
+                    <span class="old">价格：<strike>¥${item.old}</strike></span>
+                    <span class="new">¥${item.new}</span>
+                </div>
+                <div class="button" style="background-color: ${item.buttoncolor};">
+                    ${item.context}
+                </div>
+            </div>
+        </section>
+    </section>
+    {@/each}
+</section>
+<script>
+    require.async('./index.js', function(e){});
+</script>
+

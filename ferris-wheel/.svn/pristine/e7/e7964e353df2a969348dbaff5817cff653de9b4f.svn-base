@@ -1,0 +1,131 @@
+<aside class="sidebar offscreen-left">
+  <nav class="main-navigation" data-height="auto" data-size="6px" data-distance="0"
+       data-rail-visible="true" data-wheel-step="10">
+    <ul class="nav">
+      <li class="open">
+        <a href="javascript:;">
+          <i class="fa fa-puzzle-piece"></i>
+          <span>专题运营活动管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li>
+            <a href="/event/list?template_id=nuomi-seckill-h5">
+              <span class="nuomi-seckill-h5">糯米秒杀类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-sell-h5">
+              <span class="nuomi-sell-h5">糯米内容类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=map-sell-h5">
+              <span class="map-sell-h5">地图内容类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=product-h5">
+              <span class="product-h5">旅游内容类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-discount-h5">
+              <span class="nuomi-discount-h5">糯米特价类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=map-discount-h5">
+              <span class="map-discount-h5">地图特价类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-zhoumo-h5">
+              <span class="nuomi-zhoumo-h5">地图周末运营模板</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi2-zhoumo-h5">
+              <span class="nuomi2-zhoumo-h5">糯米周末运营模板</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=companion-h5">
+              <span class="companion-h5">伴游售卖活动</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-layout-grid2-alt"></i>
+          <span>UGC运营活动管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="/event/list?template_id=perfect-h5">
+              <span class="perfect-h5">完美旅途H5端</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=perfect-pc">
+              <span class="perfect-pc">完美旅途pc端</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=letsgo-h5">
+              <span class="letsgo-h5">我们出发吧H5端</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-layout-grid2-alt"></i>
+          <span>通用运营活动管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="javascript:alert('开发中')">
+              <span class="common-activity-nuomi">糯米端通用运营模版</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="javascript:alert('开发中')">
+              <span class="common-activity-map">地图端通用运营模版</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-key"></i>
+          <span>权限管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="/authority?tag=authority">
+              <span class="authority">权限管理</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-settings"></i>
+          <span>其他配置</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="/util/index?tag=util">
+              <span class="util">实用小工具</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>
+

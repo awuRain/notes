@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+    <div class="panel-heading">首屏图区块</div>
+    <div class="panel-body">
+      <form class="form-inline">
+        <section class="border">
+          <section ng-repeat="item in data.index.header.banner" >
+            <div class="form-group">
+              <label class="label8">首屏背景图链接：</label>
+              <input class="form-control w600" ng-model="item.url">
+            </div>
+            <button class="btn btn-default" ng-click="removeHeaderRow($index)">删除</button>
+          </section>
+          <button class="btn btn-default" ng-click="addHeaderRow()">添加一行</button>
+        </section>
+      </form>
+    </div>
+</div>

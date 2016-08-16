@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header" style="background: ${themecolor};">
+    <section class="banner" style="background-image: url(${banner});"></section>
+    <section class="daojishi">
+        <img src="${subtitle}"/>
+        <section class="daojishi-ctn">
+            <span class="text">倒计时</span>
+            <span class="clock"><span class="time-block">00</span>:<span class="time-block">00</span>:<span class="time-block">00</span></span>
+        </section>
+    </section>
+</section>
+<script>
+        window.eventId = '${eventId}';
+            BNJSReady(function(){
+                            BNJS.ui.title.setTitle('${title}');
+                                });
+
+</script>

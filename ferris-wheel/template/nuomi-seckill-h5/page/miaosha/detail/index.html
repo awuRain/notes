@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="detail">
+    <section class="detail-title">
+        <div class="main-title J_Title">加载中...</div>
+        <div class="sub-title">加载中...</div>
+    </section>
+    <section class="detail-rule">
+        <div class="main-title">活动规则</div>
+        <section class="rules">
+            <p>加载中...</p>
+        </section>
+    </section>
+    <section class="detail-info">
+        <div class="main-title">商品说明</div>
+        <section class="info">
+            <p>加载中...</p>
+        </section>
+        <div class="buy J_Buy" style="background-color:#f83f59">直接购票</div>
+    </section>
+</section>
+<script>
+    var productList = {
+    {@each productList as item,index}
+    "${item.ticketId}":{
+        "protitle":"${item.protitle}",
+        "subtitle":"${item.subtitle}",
+        "date":"${item.date}",
+        "begintime":"${item.begintime}",
+        "endtime":"${item.endtime}",
+        "rules":"$${item.rules}",
+        "info":"$${item.info}",
+        "banner":"${item.banner}",
+        "activity_id":"${item.activity_id}",
+        "lvpos":"${item.lvpos}",
+        "tid":"${item.tid}",
+                "scenicID":"${item.scenicID}",
+                "ticketId":"${item.ticketId}",
+                "partnerID":"${item.partnerID}",
+                "scope_id":"${item.scope_id}"
+    }
+    {@if (parseInt(index)+1) < productList.length},{@/if}
+    {@/each}
+    };
+    BNJSReady(function(){
+                BNJS.page.getData(function(res){
+                                var product_id = res.product_id;
+                                            /*在参数获取id后找到对应的商品*/
+                                            window.product  = productList[product_id];
+                                                        require('./index.js');
+                                                                });
+                    });
+</script>
+

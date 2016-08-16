@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header" style="background: ${themecolor};">
+   <section class="banner" style="background-image: url(${banner})"></section>
+    <section class="info">
+        $${info}
+    </section>
+</section>
+<script type="text/javascript">
+    window.eventId = '${eventId}';
+    var simplifiedData = {
+        title: '${title}',
+        text: "${shareinfo}",
+        url: location.href,
+        weiboPic: 'http://webmap1.map.bdimg.com/maps/services/thumbnails?width=222&height=208&quality=95&align=middle,middle&src=${banner}',
+        weixinPic: 'http://webmap1.map.bdimg.com/maps/services/thumbnails?width=222&height=208&quality=95&align=middle,middle&src=${banner}'
+    };
+    nativeAppAdapter.initShare(simplifiedData);
+</script>

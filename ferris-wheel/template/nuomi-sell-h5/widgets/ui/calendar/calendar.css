@@ -1,0 +1,162 @@
+/* 日历控件 */
+.uii-datepicker {
+    width: 100%;
+    line-height: 16px;
+}
+
+/* 日历头部样式 */
+.uii-datepicker-header {
+    color: #545454;
+    text-align: center;
+    padding: 0;
+}
+.uii-datepicker-header a {
+    color: #545454;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+}
+.uii-datepicker-header a.uii-state-hover {
+    background-color: #ccc;
+}
+.uii-datepicker-header .uii-datepicker-title {
+    text-align: center;
+    display: inline-block;
+    line-height: 36px;
+}
+.uii-datepicker .uii-datepicker-prev {
+    float: left;
+}
+.uii-datepicker .uii-datepicker-next {
+    float: right;
+}
+/* 日历头部样式 */
+
+
+.uii-datepicker-calendar {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+}
+
+.uii-datepicker-calendar thead th {
+    border-bottom: 1px solid #e6e6e6;
+    font-weight: normal;
+}
+
+.uii-datepicker-calendar thead .uii-datepicker-week-end {
+    color: #ff7426;
+}
+
+.uii-datepicker-calendar td {
+    text-align: center;
+    color: #000;
+    border: 0px solid #c9c9c9;
+}
+
+.uii-datepicker-calendar thead tr {
+    border: 0px solid #c9c9c9;
+}
+
+.uii-datepicker-calendar thead th {
+    padding: 10px 0;
+}
+
+.uii-datepicker-calendar a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+.uii-datepicker-calendar a.uii-state-tag {
+    color: #ff4582;
+}
+.uii-datepicker-calendar tr.uii-datepicker-gap td {
+    display: none;
+    padding: 0;
+    border: none transparent;
+}
+
+.uii-datepicker-calendar tbody td {
+    height: 43px;
+
+    position: relative;
+}
+
+.uii-datepicker-calendar tbody td a {
+    position: relative;
+    height: 43px;
+
+}
+
+.uii-datepicker-calendar tbody td:first-child {
+    border-left: none 0;
+}
+
+.uii-datepicker-calendar td.uii-datepicker-unselectable {
+    color: #b8b8b8;
+    font-weight: normal;
+}
+
+.uii-datepicker-calendar td.uii-datepicker-current-day {
+    background: #ff4582;
+    
+}
+.uii-datepicker-calendar td.uii-datepicker-current-day a {
+    color: #fff;
+}
+.uii-datepicker-calendar td.uii-datepicker-current-day a span {
+    color: #fff;
+}
+
+.uii-datepicker-calendar td.uii-datepicker-current-day .uii-datepicker-date-desc{
+    background: #ff4582;
+}
+
+.uii-datepicker-calendar tbody td {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    line-height: 20px;
+    vertical-align: top;
+    position: relative;
+}
+.uii-datepicker-calendar tbody td a {
+    color: #000;
+    height: 20px;
+}
+.uii-datepicker-calendar tbody td .uii-datepicker-date-desc {
+    -webkit-box-sizing: border-box;
+    height: 23px;
+    line-height: 16px;
+    background: #fff;
+    color: #ff4582;
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+}
+
+.uii-datepicker-calendar td.uii-datepicker-between-day {
+    background: #aecdfc;
+    color: #fff;
+    border-color: #fff;
+}
+.uii-datepicker-calendar td.uii-datepicker-between-day a {
+    color: #fff;
+}
+
+.uii-datepicker-calendar td.uii-datepicker-show-close .uii-date-close-icon {
+    display: block;
+}
+.uii-datepicker-calendar .uii-date-close-icon {
+    display: none;
+    position: absolute;
+    color: #4d4d4d;
+    top: -12px;
+    right: -12px;
+    padding: 5px;
+}
+
+.uii-datepicker-calendar td.uii-state-hover {
+    background: #ccc;
+}

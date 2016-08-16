@@ -1,0 +1,44 @@
+<section class="list" style="background-color: ${themecolor}" data-taplog="${tapLog}">
+    <ul>
+        <li class="item-list">
+        {@each list as item}
+            <section>
+                <img class="item-title" src="${item.title}"/>
+                <ul>
+                    <li class="ticket-list">
+                        {@each item.list as inn}
+                            {@if inn.type == 'pic'}
+                                <img class="item-banner" src="${inn.pic}" style="width: 100%;"/>
+                            {@/if}
+                            {@if inn.type == 'text'}
+                                <div class="item-text">
+                                    $${inn.text}
+                                </div>
+                            {@/if}
+                            {@if inn.type == 'button'}
+                                {@if inn.buttons.length == 1}
+                                    {@each inn.buttons as btn}
+                                        <div class="item-btn-large J_item_btn" data-schema="${btn.schema}" data-tid="${btn.tid}" style="background: ${buttoncolor}">${btn.text}</div>
+                                    {@/each}
+                                {@else}
+                                        <div class="item-btn-ctn">
+                                            {@each inn.buttons as btn}
+                                            <div class="item-btn J_item_btn" data-schema="${btn.schema}" data-tid="${btn.tid}" style="background: ${buttoncolor}">${btn.text}</div>
+                                            {@/each}
+                                        </div>
+                                {@/if}
+                            {@/if}
+                        {@/each}
+                    </li>
+                </ul>
+            </section>
+        {@/each}
+        </li>
+    </ul>
+</section>
+<script type="text/javascript">
+    BNJSReady(function(){
+        window.eventId = '${eventId}';
+        require('./index.js');
+    });
+</script>

@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading">带你玩</div>
+    <div class="panel-body">
+        <form>
+            <section ng-repeat="(index,item) in data.index.takeplay.takelist" class="border">
+                <div class="form-group">
+                    <label class="label6">城市代码：</label>
+                    <input class="form-control"  ng-model="item.citycode">
+                </div>
+                <section ng-repeat="(jndex,jtem) in item.list" class="border">
+                    <div class="form-group">
+                        <label class="label6">点击统计：</label>
+                        <input class="form-control" ng-model="jtem.tapLog">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">卡片标题：</label>
+                        <input class="form-control" ng-model="jtem.title">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">卡片副标题：</label>
+                        <input class="form-control" ng-model="jtem.subtitle">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">卡片图：</label>
+                        <input class="form-control" ng-model="jtem.image">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">卡片链接：</label>
+                        <input class="form-control" ng-model="jtem.link">
+                    </div>
+                    <button class="btn btn-default" ng-click="addCardRow(item.list)">添加卡片</button>
+                    <button class="btn btn-default" ng-click="removeCardRow(jndex, item.list)">删除</button>
+                </section>
+                <button class="btn btn-default" ng-click="removeProvinceItemRow(index)">删除省份</button>
+            </section>
+            <button class="btn btn-default" ng-click="addProvinceItemRow()">添加省份</button>
+        </form>
+    </div>
+</div>

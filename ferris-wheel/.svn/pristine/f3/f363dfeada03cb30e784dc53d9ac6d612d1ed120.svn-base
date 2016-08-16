@@ -1,0 +1,356 @@
+<% include ../layout/header %>
+<link rel="stylesheet" href="/css/data.css">
+<script src="/components/jquery-qrcode/jquery.qrcode.min.js"></script>
+<script src="/components/juicer/juicer-min.js"></script>
+<body class="app" ng-app="ferrisApp">
+<% include ../layout/top-bar %>
+<section class="layout">
+  <% include ../layout/side %>
+  <section class="main-content" ng-controller="dataCtl">
+    <div class="content-wrap">
+      <div class="wrapper">
+        <% for(var key in html) { %>
+        <section class="panel section-panel">
+          <header class="panel-heading"><%=key%>页面物料填充</header>
+          <div class="panel-body">
+            <%-html[key]%>
+          </div>
+        </section>
+        <% } %>
+        <button class="btn btn-success" style="margin-bottom: 20px;"  type="submit" ng-click="preview();" ng-if="mode == 'edit'">填好啦，看看预览长啥样</button>
+        <button class="btn btn-warning" style="margin-bottom: 20px;"  type="submit" ng-click="save();" ng-if="mode == 'edit'">先保存数据，以后再说</button>
+        <button class="btn btn-danger" style="margin-bottom: 20px;"  type="submit" ng-click="online();" ng-if="mode == 'edit'">木有问题了，我要上线</button>
+        <button class="btn btn-info" style="margin-bottom: 20px;"  type="submit" ng-click="import();" ng-if="mode == 'edit'">我要导入数据</button>
+        <button class="btn btn-default" style="margin-bottom: 20px;" type="submit" ng-if="log_id" ng-click="backToLog()">返回操作记录</button>
+        <button class="btn btn-default" style="margin-bottom: 20px;" type="submit" ng-click="back();">返回列表页</button>
+      </div>
+    </div>
+  </section>
+</section>
+<script>
+  angular.module("ferrisApp", []).controller('dataCtl', function ($scope, $http) {
+    var template_id = utils.getRequestParam('template_id');
+    var select_section = utils.getRequestParam('sections');
+    var event_name = utils.getRequestParam('event_name');
+    var event_list;
+    var temp = <%- JSON.stringify(temp) %>;
+    $scope.log_id = utils.getRequestParam('log_id');
+
+    <%- forminit%>
+
+    $scope.mode = 'edit';
+    if($scope.log_id) {
+      $scope.mode = 'view';
+    }
+
+    $scope.preview = function(){
+      var win = $.confirm({
+        title: false,
+        cancelButton: false,
+        confirmButton: false,
+        closeIcon: false,
+        content: '正在生成页面，请稍等...'
+      });
+      $scope.saveData && $scope.saveData();
+      console.log(angular.toJson($scope.data));
+      $.post('/event/data/preview', {
+        data:angular.toJson($scope.data),
+        mode: $scope.mode,
+        select_section: select_section,
+        template_id:template_id,
+        event_name:event_name,
+        select_section: select_section
+      }, function(data){
+        if(data.errno == 0) {
+          var url = data.data.url;
+          win.close();
+          if(temp.webview == 'map') {
+            $.confirm({
+              title: false,
+              cancelButton: false,
+              confirmButton: false,
+              closeIcon: false,
+              content: '<div class="webapp-ctn">webapp点击链接' + '<a style="color:#11ac66;" href=' + url + ' target=_blank>预览页面</a><div id="qrcode"></div></div>' +
+                '<div class="webview-ctn">地图客户端，请用手百扫码<div id="qrcode-webview"></div></div>'
+            });
+            $("#qrcode").qrcode({width: 200, height: 200, correctLevel: 0, text: url});
+            $("#qrcode-webview").qrcode({width: 200, height: 200, correctLevel: 0, text: 'baidumap://map/cost_share?&url=' + url});
+          }
+          else if(temp.webview == 'nuomi'){
+            $.confirm({
+              title: false,
+              cancelButton: false,
+              confirmButton: false,
+              closeIcon: false,
+              content: '<div class="webapp-ctn"><span>webapp点击链接' + '<a style="color:#11ac66;" href=' + url + ' target=_blank>预览页面</a></span><div id="qrcode"></div></div>' +
+              '<div class="webview-ctn"><span style="opacity:0.1;visibility: hidden;">糯米客户端，请用糯米扫码</span><div id="qrcode-webview"></div></div>'
+            });
+            $("#qrcode").qrcode({width: 200, height: 200, correctLevel: 0, text: url});
+            $("#qrcode-webview").qrcode({width: 200, height: 200, correctLevel: 0, text: ('bainuo://component?url=' + url)});
+          }
+          else {
+            $.confirm({
+              title: false,
+              cancelButton: false,
+              confirmButton: false,
+              closeIcon: false,
+              content: '点击链接' + '<a style="color:#11ac66;" href=' + url + ' target=_blank>预览页面</a><div id="qrcode"></div>'
+            });
+            $("#qrcode").qrcode({width: 200, height: 200, correctLevel: 0, text: url});
+          }
+
+        }
+        else {
+          win.close();
+          $.confirm({
+            title: false,
+            cancelButton: false,
+            confirmButton: false,
+            closeIcon: false,
+            content: data.msg
+          });
+        }
+      });
+    }
+
+    $scope.back = function(){
+      location.href = '/event/list?template_id=' + template_id;
+    }
+
+    $scope.backToLog = function(){
+      history.back();
+    }
+
+    //定时保存功能，每间隔5分钟定时保存一次
+    /*setInterval(function(){
+      $scope.saveData && $scope.saveData();
+      $.ajax({
+        method: "post",
+        url:"/event/data/save",
+        data:{
+          data: angular.toJson($scope.data),
+          select_section: select_section,
+          event_name: event_name,
+          template_id: template_id
+        },
+        success: function(data){
+          if(data.errno == 0) {
+
+          }
+          else {
+
+          }
+        },
+        error: function(){
+
+        }
+      });
+    }, 1000*60*5)*/
+
+    //导入数据功能
+    $scope.import = function(){
+      $.alert({
+        title: false,
+        cancelButton: false,
+        confirmButton: false,
+        closeIcon: false,
+        "content":'<div class="title" style="width: 400px;margin-bottom: 10px;">导入数据</div><div class="import-ctn"><div class="search-ctn"><input type="text" placeholder="输入关键字，搜索活动" onkeyup="select_event(event)"/></div><ul></ul></div>'
+      });
+      $.ajax({
+        method: "get",
+        url: "/event/data/eventlist",
+        success: function (data) {
+          var html_tpl = juicer($('#event-list').html(), {"list":data.data});
+          event_list = data.data;
+          $('.import-ctn ul').html(html_tpl);
+        },
+        error: function () {
+        }
+      });
+    }
+
+    $('body').on('click', 'li[data-template_id]', function(){
+      var copy_event_name = $(this).html();
+      $.confirm({
+        "content": "导入数据会覆盖原来的数据，真的要导入嘛？",
+        "confirm": function () {
+          $.ajax({
+            method: 'get',
+            url: '/event/data/import',
+            data: {
+              event_name: event_name,
+              copy_event_name: copy_event_name,
+              template_id:template_id
+            },
+            success: function(){
+              $.alert({
+                title: false,
+                cancelButton: false,
+                confirmButton: false,
+                closeIcon: false,
+                backgroundDismiss: false,
+                content: '亲爱的，数据导入成功！两秒钟后页面自动刷新...'
+              });
+              setTimeout(function(){
+                window.location.reload(true);
+              }, 2000);
+            },
+            error: function(){
+
+            }
+          });
+        }
+      });
+    });
+
+    window.select_event = function(event) {
+      var keyword = event.target.value;
+      var result_li = [];
+      var r = new RegExp(keyword, 'i');
+      $(event_list).each(function(index, item){
+        if(r.exec(item.event_name) || r.exec(item.event_id)) {
+          result_li.push(item);
+        }
+      });
+      if(result_li.length == 0) {
+        $('.import-ctn ul').html('啥也没找到，伤感');
+      }
+      else {
+        var html_tpl = juicer($('#event-list').html(), {"list":result_li});
+        $('.import-ctn ul').html(html_tpl);
+      }
+    }
+
+    $scope.save = function(){
+      $scope.saveData && $scope.saveData();
+      $.ajax({
+        method: "post",
+        url:"/event/data/save",
+        data:{
+          data: angular.toJson($scope.data),
+          select_section: select_section,
+          event_name: event_name,
+          template_id: template_id
+        },
+        success: function(data){
+          if(data.errno == 0) {
+            $.alert({
+              content: '亲爱的，保存成功！'
+            });
+          }
+          else {
+            $.alert({
+              content: data.msg
+            });
+          }
+        },
+        error: function(){
+          $.alert({
+            content: '额，程序出错了！'
+          });
+        }
+      });
+    }
+
+    var map_online_win;
+    $scope.online = function(){
+      if(temp.webview == 'map') {
+        map_online_win = $.alert({
+          cancelButton: false,
+          confirmButton: false,
+          closeIcon: false,
+          backgroundDismiss: false,
+          "content":'<div>上线无小事，真要上线嘛？</div><div class="buttons"><button class="btn btn-default J_Map">上到地图域</button><button class="btn btn-default J_Lvyou">上到旅游域</button><button class="btn btn-default J_Cancel">取消</button></div>'
+        });
+      }
+      else {
+        $.confirm({
+          "content":"上线无小事，真要上线嘛？",
+          "confirm":function(){
+            online('lv');
+          }
+        });
+      }
+    }
+
+    $('body').on('click', '.J_Map', function(){
+      map_online_win.close();
+      online('map');
+    });
+    $('body').on('click', '.J_Lvyou', function(){
+      map_online_win.close();
+      online('lv');
+    });
+    $('body').on('click', '.J_Cancel', function(){
+      map_online_win.close();
+    });
+
+    function online(dest){
+      var loading = $.alert({
+        title: false,
+        cancelButton: false,
+        confirmButton: false,
+        closeIcon: false,
+        backgroundDismiss: false,
+        content:'正在准备上线...'
+      });
+      $scope.saveData && $scope.saveData();
+      $.ajax({
+        "method":"post",
+        "url":"/event/online",
+        "data":{
+          "event_name":event_name,
+          "template_id":template_id,
+          "release":temp.release,
+          'dest': dest,
+          "event_id":$scope.data.common.eventId,
+          "data": angular.toJson($scope.data),
+          "select_section": select_section
+        },
+        "success": function(data){
+          if(data.errno == '0') {
+            loading.close();
+            $.alert({
+              'content':'亲你的页面已经马不停蹄的奔向线上啦，五分钟后去看看效果吧！',
+              "confirm": function(){
+                location.href = '/event/list?template_id=' + template_id;
+              }
+            });
+          }
+          else {
+            $.alert({
+              "content":data.msg
+            });
+          }
+        },
+        "error": function(data){
+          loading.close();
+          $.alert({
+            "content":'擦，出现问题了，快去找闫老湿啊！'
+          });
+        }
+      });
+    }
+
+    //这个log如果存在，说明这个页面是从日志列表页进来的
+    var log = <%- (typeof log == 'undefined')? 'undefined': log  %>;
+    //section
+    var event = <%- (typeof event == 'undefined')? 'undefined': event %>;
+    if(log) {
+      $scope.data = $.extend($scope.data, JSON.parse(log.data));
+    }
+    else if(event) {
+      $scope.data = $.extend($scope.data, JSON.parse(event.data));
+      console.log($scope.data.index);
+    }
+    else {}
+  });
+</script>
+<script type="text/template" id="event-list">
+  {@each list as item}
+    <li data-template_id="${item.template_id}">${item.event_name}</li>
+  {@/each}
+</script>
+<% include ../layout/bottom-bar %>
+</body>
+<% include ../layout/footer %>

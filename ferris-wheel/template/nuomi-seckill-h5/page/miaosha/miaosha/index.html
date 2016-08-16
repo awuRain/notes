@@ -1,0 +1,18 @@
+<section class="fix">
+    <div class="btn apply">获取资格</div>
+    <div class="btn seckill">立即秒杀</div>
+    <div class="btn will">秒杀未开始</div>
+    <div class="btn over">秒杀已结束</div>
+    <div class="btn done">已参加秒杀</div>
+</section>
+<script>
+BNJSReady(function(){
+                BNJS.page.getData(function(res){
+                                var product_id = res.product_id;
+                                            /*在参数获取id后找到对应的商品*/
+                                            window.product  = productList[product_id];
+                                                        require('./index.js');
+                                                                });
+                    });
+</script>
+

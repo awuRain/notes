@@ -1,0 +1,29 @@
+{
+    "takelist": [{
+        "title": "a",
+        "citycode": "100000000",
+        "list": [{
+            "tapLog": "a1",
+            "image": "http://o.hiphotos.baidu.com/baidu/pic/item/c75c10385343fbf2f96d82a5b77eca8064388ff6.png",
+            "title": "aaa",
+            "subtitle": "aaaa",
+            "link": "http://www.baidu.com"
+        }]
+    }, {
+        "title": "b",
+        "citycode": "200000000",
+        "list": [{
+            "tapLog": "b1",
+            "image": "http://o.hiphotos.baidu.com/baidu/pic/item/c75c10385343fbf2f96d82a5b77eca8064388ff6.png",
+            "title": "bbb",
+            "subtitle": "bbbb",
+            "link": "http://www.taobao.com?test=1"
+        }, {
+            "tapLog": "b2",
+            "image": "http://o.hiphotos.baidu.com/baidu/pic/item/c75c10385343fbf2f96d82a5b77eca8064388ff6.png",
+            "title": "ccc",
+            "subtitle": "cccc",
+            "link": "http://www.qq.com"
+        }]
+    }]
+}

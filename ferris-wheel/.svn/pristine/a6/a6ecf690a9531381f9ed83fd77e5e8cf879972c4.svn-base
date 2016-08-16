@@ -1,0 +1,24 @@
+<header class="header header-fixed navbar">
+  <div class="brand">
+    <a href="javascript:;" class="ti-menu off-left visible-xs" data-toggle="offscreen" data-move="ltr"></a>
+    <a href="/" class="navbar-brand">
+      <i class="fa fa-paw"></i>
+      <span class="title">摩天轮</span>
+      <span class="subtitle">运营活动组件化搭建平台</span>
+    </a>
+  </div>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li class="off-right">
+      <a href="javascript:;" data-toggle="dropdown">
+        <img src="/img/avatar.jpg" class="header-avatar img-circle" alt="user" title="user">
+        <span class="hidden-xs ml10"><%=userName%></span>
+        <i class="ti-angle-down ti-caret hidden-xs"></i>
+      </a>
+      <ul class="dropdown-menu animated fadeInDown">
+        <li><a href="/authority">权限申请</a></li>
+        <li><a href="/logout">退出登录</a></li>
+      </ul>
+    </li>
+  </ul>
+</header>

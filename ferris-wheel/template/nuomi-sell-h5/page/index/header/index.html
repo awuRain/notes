@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="header" style="background: ${themecolor};">
+   <section class="banner" style="background-image: url(${banner})"></section>
+    <section class="info">
+        $${info}
+    </section>
+</section>
+<script type="text/javascript">
+    BNJSReady(function(){
+        window.Bridge.setTitle('${title}');
+        /*开启分享和刷新功能*/
+        if(window.BNJS) {
+            BNJS.ui.title.addActionButton({
+                tag: '123',
+                text: '分享',
+                icon: 'share',
+                callback: function(){
+                    /*点击回调分享功能*/
+                    BNJS.ui.share({
+                        title : '${title}',
+                        imgUrl : '${banner}',
+                        content: '${shareinfo}',
+                        url : location.href,
+                        onSuccess : function(){
+                            window.Bridge.Toast.show('分享成功');
+                        },
+                        onFail : function(){
+                            window.Bridge.Toast.show('分享失败');
+                        }
+                    });
+                }
+            });
+        }
+    });
+</script>

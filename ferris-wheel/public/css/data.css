@@ -1,0 +1,129 @@
+#qrcode, #qrcode-webview {
+  margin-top: 10px;
+}
+.form-inline section {
+  margin-bottom: 7px;
+}
+.form-control {
+  width: 50%;
+  display: inline-block;
+}
+.w800 {
+  width: 800px !important;
+}
+.w600 {
+  width: 600px !important;
+}
+.w400 {
+  width: 400px !important;
+}
+.w200 {
+  width: 200px !important;
+}
+.border {
+  border: 1px solid rgb(245, 245, 245);
+  padding: 11px;
+  border-radius: 5px;
+  margin-bottom: 12px !important;
+}
+.label4 {
+  width: 70px;
+  text-align: right;
+}
+.label5 {
+  width: 84px;
+  text-align: right;
+}
+.label6 {
+  width: 98px;
+  text-align: right;
+}
+.label7 {
+  width: 112px;
+  text-align: right;
+}
+.label8 {
+  width: 130px;
+  text-align: right;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.anchor-area {
+  width: 100px;
+  height: 100px;
+  background: rgba(252, 0, 0, 0.3);
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid rgb(255, 202, 202);
+  cursor: move;
+}
+.webapp-ctn,.webview-ctn {
+  float: left;
+}
+.webview-ctn {
+  margin-left: 90px;
+}
+.jconfirm.supervan .jconfirm-box div.content {
+  /*width: 680px;*/
+}
+.import-ctn {
+  text-align: left;
+}
+.import-ctn .search-ctn input {
+  padding-left: 10px;
+  width: 400px;
+  color: #3E4D63;
+}
+.import-ctn .search-ctn {
+  margin-bottom: 20px;
+}
+.import-ctn li {
+  list-style: none;
+  text-align: left;
+  cursor: pointer;
+  line-height: 25px;
+}
+.import-ctn li:hover {
+  background: rgb(62, 77, 99);
+}
+.import-ctn li input {
+  margin-right: 20px;
+}
+.import-ctn ul {
+  height: 200px;
+  margin: 0px;
+  padding: 20px;
+  width: 400px;
+  box-sizing: border-box;
+  overflow: auto;
+  border-radius: 4px;
+  background: rgb(89, 109, 137);
+}
+
+.order-btns {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  opacity: 0.3;
+  -webkit-transition: all 0s;
+          transition: all 0s;
+}
+
+.order-btns:hover {
+  opacity: 1;
+}
+
+.order-btns button {
+  line-height: 3.5;
+  opacity: 0.9;
+  -webkit-transition: all 0s;
+          transition: all 0s;
+
+}
+
+.order-btns button:hover {
+  opacity: 1;
+};

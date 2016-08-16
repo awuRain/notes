@@ -1,0 +1,115 @@
+<aside class="sidebar offscreen-left">
+  <nav class="main-navigation" data-height="auto" data-size="6px" data-distance="0"
+       data-rail-visible="true" data-wheel-step="10">
+    <ul class="nav">
+      <li class="open">
+        <a href="javascript:;">
+          <i class="fa fa-puzzle-piece"></i>
+          <span>专题运营活动管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="/event/list?template_id=perfect-h5">
+              <span>完美旅途H5端</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=perfect-pc">
+              <span>完美旅途pc端</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-seckill-h5">
+              <span>糯米秒杀类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:alert('开发中')">
+              <span>地图秒杀类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-sell-h5">
+              <span>糯米内容类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=map-sell-h5">
+              <span>地图内容类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=product-h5">
+              <span>旅游内容类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-discount-h5">
+              <span>糯米特价类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=map-discount-h5">
+              <span>地图特价类模版</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=nuomi-zhoumo-h5">
+              <span>糯米周末运营模板</span>
+            </a>
+          </li>
+          <li>
+            <a href="/event/list?template_id=companion-h5">
+              <span>伴游售卖活动</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-layout-grid2-alt"></i>
+          <span>通用运营活动管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="javascript:alert('开发中')">
+              <span>通用运营活动H5端</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="javascript:alert('开发中')">
+              <span>通用运营活动pc端</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-key"></i>
+          <span>权限管理</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="/authority">
+              <span>权限管理</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="open">
+        <a href="javascript:;">
+          <i class="ti-settings"></i>
+          <span>其他配置</span>
+        </a>
+        <ul class="sub-menu" style="display: block;">
+          <li class="">
+            <a href="/util/index">
+              <span>实用小工具</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>

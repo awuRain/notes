@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="ticketList discount" style="background: ${themecolor}">
+<div class="loading">数据加载中...</div>
+</section>
+
+<script>
+	var ticketListTapLog = '${tapLog}';
+    var ticketListDataUrl = '${discountDataUrl}';
+    var ticketListActivityId = '${activityId}';
+    var ticketListNoPro = '${noPro}';
+    var ticketListTitle = '${sectionTitle}';
+
+    ready(function(){
+        require('./index.js');
+    });
+</script>
+

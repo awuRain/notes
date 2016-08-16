@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading">切换标签区块</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label6">按钮颜色：</label>
+                <input class="form-control w400" ng-model="data.index.tab.buttoncolor" type="color">
+            </div>
+          <div class="form-group">
+            <label class="label6">按钮选中颜色：</label>
+            <input class="form-control w400" ng-model="data.index.tab.buttonselectcolor" type="color">
+          </div>
+            <div class="form-group">
+                <label class="label6">文字颜色：</label>
+                <input class="form-control w400" ng-model="data.index.tab.color" type="color">
+            </div>
+        </form>
+      <form class="form-inline">
+        <section class="border">
+          <section ng-repeat="item in data.index.tab.buttons" >
+            <div class="form-group">
+              <label>标签内容：</label>
+              <input class="form-control" ng-model="item.text">
+            </div>
+            <div class="form-group">
+              <label class="m10 label6">标签点击统计：</label>
+              <input class="form-control" ng-model="item.tap">
+            </div>
+            <div class="form-group">
+              <label class="m10 label6">商品点击统计：</label>
+              <input class="form-control" ng-model="item.producttap">
+            </div>
+            <button class="btn btn-default" ng-click="removeTabRow($index)">删除</button>
+          </section>
+          <button class="btn btn-default" ng-click="addTabRow()">添加一行</button>
+        </section>
+      </form>
+    </div>
+</div>

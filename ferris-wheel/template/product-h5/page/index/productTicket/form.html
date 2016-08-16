@@ -1,0 +1,81 @@
+<div class="panel panel-default">
+  <div class="panel-heading">商品详情区块</div>
+  <div class="panel-body">
+    <form class="form-inline">
+      <section ng-repeat="item in data.index.productTicket.productList" class="border">
+        <section>
+          <div class="form-group">
+            <label class="label6">所属分类：</label>
+            <select ng-model="item.type" class="form-control">
+              <option ng-repeat="o in data.index.tab.buttons" value="{{$index}}">{{o.text}}</option>
+            </select>
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">商品图片链接：</label>
+            <input class="form-control w600"  ng-model="item.img">
+          </div>
+          </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">商品标题：</label>
+            <input class="form-control w600"  ng-model="item.title">
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">sid：</label>
+            <input class="form-control w600"  ng-model="item.sid" placeholder="这里不用填，可以自动生成">
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">商品跳转链接：</label>
+            <input class="form-control w600"  ng-model="item.url">
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">商品tag：</label>
+            <input class="form-control w200"  ng-model="item.tag">
+          </div>
+          <div class="form-group">
+            <label class="label5">tag颜色：</label>
+            <input class="form-control w200"  ng-model="item.tagcolor" type="color">
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">原价：</label>
+            <input class="form-control w200"  ng-model="item.old">
+          </div>
+          <div class="form-group">
+            <label class="label5">现价：</label>
+            <input class="form-control w200"  ng-model="item.new">
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">按钮文字：</label>
+            <input class="form-control w200"  ng-model="item.context">
+          </div>
+          <div class="form-group">
+            <label class="label5">按钮颜色：</label>
+            <input class="form-control w200" type="color" ng-model="item.buttoncolor">
+          </div>
+        </section>
+        <section>
+          <div class="form-group">
+            <label class="label6">商品详情：</label>
+            <textarea ng-model="item.detail" class="form-control w600" style="height: 100px;"></textarea>
+          </div>
+          <button class="btn btn-default" ng-click="removeProductRow($index)">删除</button>
+        </section>
+      </section>
+      <button class="btn btn-default" ng-click="addProductRow()">添加一行</button>
+    </form>
+  </div>
+</div>
+
+

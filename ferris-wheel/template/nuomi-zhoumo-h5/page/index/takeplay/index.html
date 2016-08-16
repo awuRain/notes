@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="c-takeplay J-c-takeplay">
+    <div class="takeplay">
+        <div class="title">带你去玩儿</div>
+        <div class="subtitle">这样撒野最有范儿</div>
+        <div class="takelist J-takelist">
+            {@each takelist as item,index}
+                {@if item.citycode}
+                    <ul data-citycode="${item.citycode}">
+                        {@each item.list as jtem,jndex}
+                        <li class="item J-item" pb_id="${jtem.tapLog}" data-link="${jtem.link}">
+                            <img data-src="${jtem.image}">
+                            <div class="taketext">
+                                <div class="textwrap">
+                                    <div class="taketitle">${jtem.title}</div>
+                                    <div class="takesub">${jtem.subtitle}</div>
+                                </div>
+                            </div>
+                        </li>
+                        {@/each}
+                    </ul>
+                {@/if}
+            {@/each}
+        </div>
+    </div>
+</section>
+<script>
+var discountTapLog = '${tapLog}';
+ready(function() {
+    require('./index.js');
+});
+</script>

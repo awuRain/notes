@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+    <div class="panel-heading">产品列表区块</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label6">点击统计：</label>
+                <input class="form-control"  ng-model="data.index.travelList.tapLog">
+            </div>
+            <section ng-repeat="item in data.index.travelList.list" class="border">
+                <div class="form-group">
+                    <label class="label6">标题图片链接：</label>
+                    <input class="form-control"  ng-model="item.title">
+                </div>
+                <div class="form-group">
+                    <label class="label6">城市代码：</label>
+                    <input class="form-control"  ng-model="item.citycode">
+                </div>
+                <section ng-repeat="i in item.list" class="border">
+                    <div class="form-group">
+                        <label class="label6">productId：</label>
+                        <input class="form-control"  ng-model="i.templateId" placeholder="这个东西要去问问RD，闫老湿也不知道">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">商品大图：</label>
+                        <input class="form-control"  ng-model="i.banner">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">主标题：</label>
+                        <input class="form-control"  ng-model="i.title">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">副标题：</label>
+                        <input class="form-control"  ng-model="i.subtitle">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">原价：</label>
+                        <input class="form-control"  ng-model="i.oldprice">
+                    </div>
+                    <div class="form-group">
+                        <label class="label6">价格：</label>
+                        <input class="form-control"  ng-model="i.price">
+                    </div>
+                    <button class="btn btn-default" ng-click="removeTravelProductRow($index, item.list)">删除</button>
+                    <!-- <span class="badge">{{$index + 1}}</span> -->
+                </section>
+                <button class="btn btn-default" ng-click="addTravelProductRow(item.list)">添加一行</button>
+                <button class="btn btn-default" ng-click="removeTravelItemRow($index)">删除</button>
+                <!-- <span class="badge">{{$index + 1}}</span> -->
+            </section>
+            <button class="btn btn-default" ng-click="addTravelItemRow()">添加一行</button>
+        </form>
+    </div>
+</div>

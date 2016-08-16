@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="./index.less">
+<section class="c-coupon">
+    <div class="coupon">
+        <!-- <div class="title">每日抢先领</div>
+        <div class="subtitle">下单立减 周五~周日</div> -->
+        <div class="couponlist J-couponlist">
+            <div class="couponline">
+                {@each couponList as item,index}
+                    <div class="clist J-clist" pb_id="${item.pbid}" data-id="${index-0+1}">
+                        <div class="listleft">
+                            <div class="price">￥<span class="num">${item.price}</span></div>
+                            <div class="text">RMB</div>
+                        </div>
+                        <div class="listright">
+                            <div class="canuse">${item.title}</div>
+                            <div class="status J-status">点击领取</div>
+                        </div>
+                    </div>
+                {@/each}
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+
+var url_get = "${url_get}";
+var url_state = "${url_state}";
+var activity_name = "${activity_name}";
+
+ready(function() {
+    require('./index.js');
+});
+</script>

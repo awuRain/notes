@@ -1,0 +1,49 @@
+.swiper-container {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #111;
+	z-index: 99;
+	.swiper-wrapper {
+		padding: 15% 0 0;
+	}
+	
+	.swiper-slide {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-align-items: center;
+				align-items: center;
+		-webkit-justify-content: center;
+				justify-content: center;
+		max-height: 70%;
+		overflow: hidden;
+	}
+	
+	.swiper-pagination-info {
+		color: #fff;
+		font-size: 18px;
+		position: absolute;
+		bottom: 30px;
+		width: 100%;
+		word-spacing: .5em;
+		text-align: center;
+	}
+	
+	.image-items > p {
+		color: #fff;
+		margin-top: 15px;
+		padding: 0 15px;
+		-webkit-line-clamp: 2;
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		line-height: 1.4;
+	}
+}

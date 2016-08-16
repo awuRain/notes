@@ -1,0 +1,194 @@
+/**
+ * 颜色变量
+ * @author gaochao
+ */
+@x-white:       #ffffff;
+@x-white-smoke: #fbfbfb;
+
+@x-gray:        #dddddd;
+@x-gray-text:   #808080;
+@x-gray-dark:   #999999;
+@x-gray-smoke:  #e5e5e5;
+
+@x-blue:        #6f6fe1;
+@x-blue-light:  #9393cf;
+@x-blue-smoke:  #f6f9ff; 
+@x-blue-dark:   #599be4; 
+@x-blue-link:   #4c90f9; 
+
+@x-black:       #000;
+@x-black-dark:  #333;
+@x-black-light: #666;
+@x-black-text:  #404040;
+
+@x-orange:      #ff6000;
+@x-orange-dark: #ff851b;
+
+@x-red:         #d46e70;
+@x-red-light:   #ff1f11;
+
+@x-green-smoke: #b4dbcf;
+@x-green:       #60b30a;
+
+/**
+ * 公用函数
+ * @author gaochao
+ */
+
+/* clearfix less实现 */
+.x-clearfix() {
+    *zoom: 1;
+    *overflow: hidden;
+
+    &:after,
+    &:before {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/* 雅黑字体 */
+.x-yahei() {
+    font-family: "Microsoft Yahei UI", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+}
+
+/* inline-block */
+.x-inline-block() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * 按钮的样式
+ * @param {string} @width  按钮宽度
+ * @param {string} @height 按钮高度
+ */
+.x-btn(@width: 90px, @height: 30px) {
+    display: inline-block;
+    width: @width;
+    height: @height;
+    padding: 0;
+    border: none 0;
+    text-align: center;
+    zoom: 1;
+    *display: inline;
+}
+
+/**
+ * 图标样式
+ * @param {string} width icon宽度
+ * @param {string} height icon高度
+ * @param {string} margin-right 右外边距
+ */
+.x-icon (@width: 16px, @height:16px, @margin-right: 2px){
+    display: inline-block;
+    margin-right: @margin-right;
+    width: @width;
+    height: @height;
+    line-height: @height;
+    vertical-align: text-bottom;
+    *display: inline;
+    zoom: 1;
+}
+
+/**
+ * input
+ * @param {string} width
+ * @param {string} height
+ */
+.x-input (@width: 100px, @height:16px) {
+    width: @width;
+    height: @height;
+    padding: 3px 10px;
+    border: 1px solid @x-gray;
+    font-size: 12px;
+    line-height: @height;
+
+    &.invalid,
+    &:focus.invalid {
+        border: 1px solid @x-red;
+    }   
+}
+
+/**
+ * css3动画
+ * @param {string} @property 需要动画的属性，默认all
+ * @param {string} @duration 持续时间，默认1s
+ */
+.x-transition(@property: all, @duration: 1s) {
+    transition-property: @property;
+    transition-duration: @duration;
+    -webkit-transition-property: @property;
+    -webkit-transition-duration: @duration;
+}
+
+/**
+ * 透明度
+ * @param {int} @opacity 透明度
+ */
+.x-opacity(@opacity: .5) {
+    opacity: @opacity;
+    @filler: (@opacity * 100);
+    filter: alpha(opacity=@filler); 
+}
+
+/**
+ * min-height
+ * @param {string} @height 
+ */
+.x-min-height(@height) {
+    min-height: @height;
+    *height: @height;
+}
+
+/**
+ * 页面模块下边距,默认为20px
+ * .basic-info {
+ *   .layout-bottom; 默认值
+ *   .layout-bottom(30px); 传入参数
+ * }
+ */
+.layout-bottom (@bottom: 20px) {
+    margin-bottom: @bottom;
+}
+/**
+ * 页面模块顶部border
+ * .basic-info {
+ *   .layout-border-top; 默认值
+ *   .layout-border-top(2px, #ccc); 传入参数
+ * }
+ */
+.layout-border-top (@width: 1px, @color: #6f6fe1) {
+    border-top: @width solid @color;
+}
+
+/* 蒙层区域 */
+.mask-screen {
+    .x-transition(opacity, 0.33s);
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    opacity: 0;
+}
+
+.mask-content {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    .x-transition(-webkit-transform, 0.44s);
+
+    .mask-detail {
+        -webkit-transform: translateZ(0);
+        padding: 10px;
+    }
+}

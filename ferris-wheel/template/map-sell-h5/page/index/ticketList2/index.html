@@ -1,0 +1,44 @@
+<section class="list" style="background-color: ${themecolor}" data-taplog="${tapLog}">
+    <ul>
+        <li class="item-list">
+        {@each list as item}
+            <section>
+                <img class="item-title" src="${item.title}"/>
+                <ul>
+                    <li class="ticket-list">
+                        {@each item.list as inn}
+                            {@if inn.type == 'pic'}
+                                <img class="item-banner" src="${inn.pic}" style="width: 100%;"/>
+                            {@/if}
+                            {@if inn.type == 'text'}
+                                <div class="item-text">
+                                    $${inn.text}
+                                </div>
+                            {@/if}
+                            {@if inn.type == 'button'}
+                                {@if inn.buttons.length == 1}
+                                    {@each inn.buttons as btn}
+                                        <a ios-href='baidumap://map/place/detail?uid=${btn.uid}&show_type=detail_page&1=${eventId}&ldata={"src_from":"${eventId}","activity_id":"${eventId}"}' href='baidumap://map/component?comName=scenery&target=scenery_detail&uid=${btn.uid}&activity_id=${eventId}&ldata={"src_from":"${eventId}","activity_id":"${eventId}"}' webapp-href="http://map.baidu.com/mobile/webapp/place/detail/foo=bar&qt=ninf&industry=scope&uid=${btn.uid}" class="item-btn-large J_item_btn"  style="background: ${buttoncolor}">${btn.text}</a>
+                                    {@/each}
+                                {@else}
+                                        <div class="item-btn-ctn">
+                                            {@each inn.buttons as btn}
+                                            <a ios-href='baidumap://map/place/detail?uid=${btn.uid}&show_type=detail_page&activity_id=${eventId}&ldata={"src_from":"${eventId}","activity_id":"${eventId}"}' href='baidumap://map/component?comName=scenery&target=scenery_detail&uid=${btn.uid}&activity_id=${eventId}&ldata={"src_from":"${eventId}","activity_id":"${eventId}"}' webapp-href="http://map.baidu.com/mobile/webapp/place/detail/foo=bar&qt=ninf&industry=scope&uid=${btn.uid}" class="item-btn J_item_btn"  style="background: ${buttoncolor}">${btn.text}</a>
+                                            {@/each}
+                                        </div>
+                                {@/if}
+                            {@/if}
+                        {@/each}
+                    </li>
+                </ul>
+            </section>
+        {@/each}
+        </li>
+    </ul>
+</section>
+<script type="text/javascript">
+    BNJSReady(function(){
+        window.eventId = '${eventId}';
+        require('./index.js');
+    });
+</script>

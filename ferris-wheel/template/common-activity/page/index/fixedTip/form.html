@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading">浮动图链</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label7">点击统计：</label>
+                <input class="form-control" ng-model="data.index.fixedTip.tapLog">
+            </div>
+            <div class="form-group">
+                <label class="label7">图片链接：</label>
+                <input class="form-control" ng-model="data.index.fixedTip.img">
+            </div>
+            <div class="form-group">
+                <label>
+                    <label class="label7">图片宽度：</label>
+                    <input class="form-control" ng-model="data.index.fixedTip.width">
+                </label>
+                <label>
+                    <label class="label7">图片高度：</label>
+                    <input class="form-control" ng-model="data.index.fixedTip.height">
+                </label>
+                <label>
+                    <label class="label7">显示宽度：</label>
+                    <input class="form-control" ng-model="data.index.fixedTip.actualWidth">
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="label7">跳转链接：</label>
+                <input class="form-control" ng-model="data.index.fixedTip.url">
+            </div>
+            <div class="form-group">
+                <label class="label7">底部距离（%）：</label>
+                <input class="form-control" ng-model="data.index.fixedTip.bottom">
+            </div>
+            <div class="radio">
+                <label class="label7"><b>位置：</b></label>
+                <label>
+                    <input type="radio" name="direction" value="left" checked="checked" ng-model="data.index.fixedTip.direction">紧靠左侧
+                </label>
+                <label>
+                    <input type="radio" name="direction" value="right" ng-model="data.index.fixedTip.direction">紧靠右侧
+                </label>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+    <div class="panel-heading">秒杀列表区块</div>
+    <div class="panel-body">
+        <form>
+            <section ng-repeat="item in data.index.list.list" class="border">
+                <!--
+                <div class="form-group">
+                    <label class="label6">商品tid：</label>
+                    <input class="form-control"  ng-model="item.tid">
+                </div>
+                -->
+                <div class="form-group">
+                    <label class="label6">ticketId：</label>
+                    <input class="form-control"  ng-model="item.ticketId">
+                </div>
+                <div class="form-group">
+                    <label class="label6">商品大图：</label>
+                    <input class="form-control"  ng-model="item.banner">
+                </div>
+                <div class="form-group">
+                    <label class="label6">主标题：</label>
+                    <input class="form-control"  ng-model="item.protitle">
+                </div>
+                <div class="form-group">
+                    <label class="label6">副标题：</label>
+                    <input class="form-control"  ng-model="item.subtitle">
+                </div>
+                <div class="form-group">
+                    <label class="label6">顶部标题：</label>
+                    <input class="form-control"  ng-model="item.title">
+                </div>
+                <div class="form-group">
+                    <label class="label6">秒杀开始日期：</label>
+                    <input class="form-control "  ng-model="item.date" placeholder="2016/2/2">
+                </div>
+                <div class="form-group">
+                    <label class="label6">秒杀开始时间：</label>
+                    <input class="form-control  "  ng-model="item.begintime" placeholder="10:00:00">
+                </div>
+                <div class="form-group">
+                    <label class="label6">秒杀结束时间：</label>
+                    <input class="form-control "  ng-model="item.endtime" placeholder="10:00:20">
+                </div>
+                <div class="form-group">
+                    <label class="label6">点击统计：</label>
+                    <input class="form-control "  ng-model="item.lvpos" placeholder="这个值，要在mis后台里新建一个，然后贴过来，不麻烦，乖" />
+                </div>
+                <button class="btn btn-default" ng-click="removeListRow($index)">删除</button>
+            </section>
+            <button class="btn btn-default" ng-click="addListRow()">添加一行</button>
+        </form>
+    </div>
+</div>

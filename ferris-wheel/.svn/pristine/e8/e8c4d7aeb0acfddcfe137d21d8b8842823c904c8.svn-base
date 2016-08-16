@@ -1,0 +1,19 @@
+<% include layout/header %>
+<link rel="stylesheet" href="/css/data.css">
+<body class="app" ng-app="ferrisApp">
+<% include layout/top-bar %>
+<section class="layout">
+  <% include layout/side %>
+  <section class="main-content">
+    <div class="content-wrap">
+      <div class="wrapper">
+        亲，你还有权限，快来<a href="/authority" style="color: rgb(109, 175, 171);font-weight: bold;">点我申请</a>吧！
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<% include layout/bottom-bar %>
+</body>
+<% include layout/footer %>

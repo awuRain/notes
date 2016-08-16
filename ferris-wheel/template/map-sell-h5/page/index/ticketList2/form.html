@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+    <div class="panel-heading">产品列表区块</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label class="label6">点击统计：</label>
+                <input class="form-control"  ng-model="data.index.ticketList2.tapLog">
+            </div>
+            <section ng-repeat="item in data.index.ticketList2.list track by $index" class="border">
+                <div ng-bind="outerIndex=$index" style="display:none"></div>
+                <div class="form-group">
+                    <label class="label6">标题图片链接：</label>
+                    <input class="form-control"  ng-model="item.title">
+                </div>
+                <section ng-repeat="i in item.list track by $index" class="border" style="border-color: rgb(213, 213, 213);">
+                    <div class="form-group">
+                        <label class="label6">选择元素类型：</label>
+                        <input ng-model="i.type"  type="radio"  value="pic"/>图片
+                        <input ng-model="i.type"  type="radio"  value="text"/>文字
+                        <input ng-model="i.type"  type="radio"  value="button"/>按钮
+                    </div>
+                    <div class="form-group" ng-if="i.type == 'pic'">
+                        <label class="label4">大图链接：</label>
+                        <input class="form-control"  ng-model="i.pic">
+                    </div>
+                    <div class="form-group" ng-if="i.type == 'text'">
+                        <label class="label4">文本信息：</label>
+                        <textarea class="form-control"  ng-model="i.text"></textarea>
+                    </div>
+                    <div class="form-group" ng-if="i.type == 'button'">
+                        <section ng-repeat="btn in i.buttons" class="border">
+                            <div class="form-group">
+                                <label class="label4">uid：</label>
+                                <input class="form-control"  ng-model="btn.uid" placeholder="这个东西要去问问RD，闫老湿也不知道" />
+                            </div>
+                            <div class="form-group">
+                                <label class="label4">按钮文字：</label>
+                                <input class="form-control"  ng-model="btn.text" />
+                            </div>
+                            <button class="btn btn-default" ng-click="removeButton($index, i.buttons)">删除按钮</button>
+                        </section>
+                    </div>
+                    <button ng-if="i.type == 'button'" class="btn btn-default" ng-click="addButton(i.buttons)">添加按钮</button>
+                    <button class="btn btn-default" ng-click="removeProductRow2($index, item.list)">删除元素</button>
+                </section>
+                <button class="btn btn-default" ng-click="addProductRow2(item.list)">添加元素</button>
+                <button class="btn btn-default" ng-click="removeItemRow2($index)">删除</button>
+            </section>
+            <button class="btn btn-default" ng-click="addItemRow2()">添加一行</button>
+        </form>
+    </div>
+</div>
