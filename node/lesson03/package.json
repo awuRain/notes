@@ -1,0 +1,17 @@
+{
+  "name": "lesson03",
+  "version": "1.0.0",
+  "description": "第三课,主要学习一下并发控制模块eventproxy的使用，之前写脚本经常碰到这个问题，但是却不知道是并发控制失败带来的，好好学习一下!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^0.20.0",
+    "eventproxy": "^0.3.5",
+    "node-xlsx": "^0.7.1",
+    "superagent": "^2.2.0"
+  }
+}
