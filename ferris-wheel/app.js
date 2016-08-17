@@ -1,9 +1,15 @@
+// express框架 express
 var express = require('express'),
+// 配置文件 config
   config = require('./config/config'),
+// 遍历文件模块 glob
   glob = require('glob'),
+// node 的 mongo数据库操作模块 mongoose 
   mongoose = require('mongoose');
 
+// 链接到本地数据库
 mongoose.connect('mongodb://localhost/ferris-wheel-development');
+// 获取数据库连接实例
 var db = mongoose.connection;
 db.on('error', function () {
   throw new Error('unable to connect to database');

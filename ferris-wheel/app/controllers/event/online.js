@@ -15,6 +15,12 @@ module.exports = function (app) {
   app.use('/event/online', router);
 };
 
+function () {
+  var promise = function () {
+    console.log(1);
+  }
+}
+
 //发布上线
 router.post('/', function (req, res, next) {
   var template_id = req.body.template_id;

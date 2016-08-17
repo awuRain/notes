@@ -1,11 +1,14 @@
 {
   "name": "lesson04",
   "version": "1.0.0",
-  "description": "第四课啦 来学习下真正的并发数控制 -- async",
+  "description": "benchmark模块的使用",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "benchmark": "^2.1.1"
+  }
 }

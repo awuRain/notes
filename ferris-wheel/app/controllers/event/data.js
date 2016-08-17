@@ -10,6 +10,7 @@ var EventModel = mongoose.model('Event');
 var TemplateModel = mongoose.model('Template');
 var template_id, sections, event_name;
 
+// 定义当前模块使用的路径'/event/data'
 module.exports = function (app) {
   app.use('/event/data', router);
 };
@@ -169,6 +170,7 @@ router.get('/import', function(req, res){
 //预览
 router.post('/preview', function (req, res){ 
 
+  // data
   var data = req.body.data;
   var dataObj = JSON.parse(data);
   var mode = req.body.mode;
@@ -176,10 +178,12 @@ router.post('/preview', function (req, res){
   var template_id = req.body.template_id;
   var event_name = req.body.event_name;
 
+  // 获取到对应模板的目录
   var tplDir = process.cwd() + '/template/' + template_id;
-  //渲染fis配置文件
+  // 同步读fis配置文件 fis-conf-tpl.js
   var fisConf = fs.readFileSync(tplDir + '/fis-conf-tpl.js', 'utf-8');
 
+  // 将eventName-eventId填入 fis-config.js
   fs.writeFileSync(tplDir + '/fis-conf.js' ,juicer(fisConf, {"eventName":template_id + '-' + dataObj.common.eventId}));
 
   //把物料数据分别保存在各个区块的data.json文件中
@@ -214,6 +218,7 @@ router.post('/preview', function (req, res){
   }
   console.log(pagesDir);
   //执行fis，本地编译后发送至沙盒机器，在沙盒上进行预览
+  //fis编译过程中会在preprocessor过程利用juicer-parser插件将同目录下的html文件和data.json文件juicer一下
   console.log('开始fis编译');
   exec('cd ' + tplDir + ' && fis release -umd remote', function(err, stdout, stderror){
     if(err) {
@@ -227,7 +232,8 @@ router.post('/preview', function (req, res){
     else {
       console.log('fis编译结束');
       console.log(stdout);
-      //存库
+      // 存库
+      // $ne是 非 选择，则这里是指 寻找 status 不为 已上线的活动进行修改成未上线的操作
       EventModel.update({"event_name":event_name, "status":{"$ne":"已上线"}},{$set:{"data":data, "status":"未上线", "event_id":(template_id + '-' + dataObj.common.eventId)}}, function(err){
         if(err) {
           res.json({
@@ -253,6 +259,7 @@ router.post('/preview', function (req, res){
                 "msg":err.toString()
               });
             }
+            // 若保存log成功之后, 则返回json, json里面的url可供跳跃或者生成二维码
             else {
               res.json({
                 "errno":0,
